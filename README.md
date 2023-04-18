@@ -22,6 +22,12 @@ This is a Laravel application for managing visits to a registry. It allows users
     composer install
     ```
 
+    and
+
+    ```
+    npm install
+    ```
+
 4. Create a new .env file:
 
     ```
