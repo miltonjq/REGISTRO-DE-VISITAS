@@ -1,5 +1,8 @@
 <x-app-layout>
-    <x-slot name="header">
+    <nav>
+        <div class="p-4 sm:ml-64">
+            <div class="p-10 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
+            <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Profile') }}
         </h2>
@@ -42,4 +45,10 @@
             @endif
         </div>
     </div>
+                
+            </div>
+        </div>
+    </nav>
 </x-app-layout>
+
+

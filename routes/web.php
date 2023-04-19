@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\http\Controllers\VisitasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('home');
 
 Route::middleware([
     'auth:sanctum',
@@ -27,6 +28,7 @@ Route::middleware([
     })->name('dashboard');
 });
 
-
-Route::get('registrar-visita', [UsuariosController::class, 'index']);
+Route::controller(VisitasController::class)->group(function(){
+    Route::get('registrar-visita','index');
+});
 

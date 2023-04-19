@@ -7,12 +7,17 @@ use Illuminate\Http\Request;
 
 class VisitasController extends Controller
 {
+    public function __construct() {
+
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view('modulos.registrar-visita');
     }
 
     /**
