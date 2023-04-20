@@ -33,7 +33,23 @@ class VisitasController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
+        $validatedData = $request->validate([
+            'dni' => 'required',
+            'nombres' => 'required',
+            'apellidos' => 'required',
+            'fecha_y_hora' => 'required',
+            'sede' => 'required',
+            'oficina' => 'required',
+            'personero_id' => 'required'
+        ], [
+            'dni.required' => 'El campo DNI es obligatorio.',
+            'nombres.required' => 'El campo Nombres es obligatorio.',
+            'apellidos.required' => 'El campo Apellidos es obligatorio.',
+            'fecha_y_hora.required' => 'El campo Fecha y Hora es obligatorio.',
+            'sede.required' => 'El campo Sede es obligatorio.',
+            'oficina.required' => 'El campo Oficina es obligatorio.',
+            'personero_id.required' => 'El campo Personero es obligatorio.'
+        ]);
         
         $visita = new Visitas();
         $visita->dni = $request->input('dni');
@@ -43,11 +59,14 @@ class VisitasController extends Controller
         $visita->sede = $request->input('sede');
         $visita->oficina = $request->input('oficina');
         $visita->personero_id = $request->input('personero_id');
-        $visita->save();
 
-        return redirect()->route('registrar-visita.index')->with('message', 'Se registro exitosamente la visita.');
-
+        if($visita->save()){
+            return redirect()->route('registrar-visita.index')->with('message', 'Se registro exitosamente la visita.');
+        }else{
+            return redirect()->route('registrar-visita.index')->with('error', 'Ocurrió un error al registrar la visita.');
+        }
     }
+
 
     /**
      * Display the specified resource.
