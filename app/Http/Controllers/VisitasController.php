@@ -25,7 +25,7 @@ class VisitasController extends Controller
      */
     public function create()
     {
-        //
+       
     }
 
     /**
@@ -33,7 +33,20 @@ class VisitasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        
+        $visita = new Visitas();
+        $visita->dni = $request->input('dni');
+        $visita->nombres = $request->input('nombres');
+        $visita->apellidos = $request->input('apellidos');
+        $visita->fecha_y_hora = $request->input('fecha_y_hora');
+        $visita->sede = $request->input('sede');
+        $visita->oficina = $request->input('oficina');
+        $visita->personero_id = $request->input('personero_id');
+        $visita->save();
+
+        return redirect()->route('registrar-visita.index')->with('message', 'Se registro exitosamente la visita.');
+
     }
 
     /**
@@ -68,3 +81,4 @@ class VisitasController extends Controller
         //
     }
 }
+

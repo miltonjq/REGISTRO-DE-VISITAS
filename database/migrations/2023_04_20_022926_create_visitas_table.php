@@ -13,7 +13,21 @@ return new class extends Migration
     {
         Schema::create('visitas', function (Blueprint $table) {
             $table->id();
+            $table->string('dni');
+            $table->string('nombres');
+            $table->string('apellidos');
+            $table->dateTime('fecha_y_hora');
+            $table->string('sede');
+            $table->string('oficina');
+            
+            
             $table->timestamps();
+        });
+        
+        Schema::table('visitas', function (Blueprint $table) {
+            $table->unsignedBigInteger('personero_id');
+            
+            $table->foreign('personero_id')->references('id')->on('users');
         });
     }
 

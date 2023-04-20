@@ -26,9 +26,7 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-});
 
-Route::controller(VisitasController::class)->group(function(){
-    Route::get('registrar-visita','index');
+    Route::resource('registrar-visita', VisitasController::class);
 });
 
