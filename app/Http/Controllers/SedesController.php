@@ -14,7 +14,10 @@ class SedesController extends Controller
 
     public function index()
     {
-        return view('modulos.agregar-sedes');
+        $sedes = Sedes::all();
+        // dd($oficinas);
+
+        return view('modulos.agregar-sedes', ['sedes' => $sedes]);
     }
 
     /**
@@ -75,8 +78,15 @@ class SedesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(sedes $sedes)
+    public function destroy($id)
     {
-        //
+        $sede = Sedes::findOrFail($id);
+        $sede->delete();
+
+        if($sede){
+            return redirect()->route('agregar-sedes.index')->with('message', 'Se elimino correctamente la sede.');
+        }else{
+            return redirect()->route('agregar-sedes.index')->with('error', 'Ocurrió un error al eliminar la sede.');
+        }
     }
 }

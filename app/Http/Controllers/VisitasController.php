@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\visitas;
+use App\Models\Oficinas;
+use App\Models\Sedes;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+use GuzzleHttp;
 
 class VisitasController extends Controller
 {
@@ -17,7 +21,10 @@ class VisitasController extends Controller
      */
     public function index()
     {
-        return view('modulos.registrar-visita');
+        $oficinas = Oficinas::all();
+        $sedes = Sedes::all();
+
+        return view('modulos.registrar-visita', ['oficinas' => $oficinas, 'sedes'=> $sedes]);
     }
 
     /**
@@ -33,6 +40,7 @@ class VisitasController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $validatedData = $request->validate([
             'dni' => 'required',
             'nombres' => 'required',
@@ -56,8 +64,8 @@ class VisitasController extends Controller
         $visita->nombres = $request->input('nombres');
         $visita->apellidos = $request->input('apellidos');
         $visita->fecha_y_hora = $request->input('fecha_y_hora');
-        $visita->sede = $request->input('sede');
-        $visita->oficina = $request->input('oficina');
+        $visita->sede_id = $request->input('sede');
+        $visita->oficina_id = $request->input('oficina');
         $visita->personero_id = $request->input('personero_id');
 
         if($visita->save()){

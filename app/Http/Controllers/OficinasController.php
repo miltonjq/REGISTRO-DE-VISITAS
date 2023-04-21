@@ -16,7 +16,10 @@ class OficinasController extends Controller
      */
     public function index()
     {
-        return view('modulos.agregar-oficina');
+        $oficinas = Oficinas::all();
+        // dd($oficinas);
+        return view('modulos.agregar-oficina', ['oficinas' => $oficinas]);
+        
     }
 
     /**
@@ -78,8 +81,16 @@ class OficinasController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(oficinas $oficinas)
+    public function destroy($id)
     {
-        //
+
+        $oficina = Oficinas::findOrFail($id);
+        $oficina->delete();
+
+        if($oficina){
+            return redirect()->route('agregar-oficina.index')->with('message', 'Se elimino correctamente la oficina.');
+        }else{
+            return redirect()->route('agregar-oficina.index')->with('error', 'Ocurrió un error al eliminar la oficina.');
+        }
     }
 }
