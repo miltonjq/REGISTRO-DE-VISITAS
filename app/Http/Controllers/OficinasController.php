@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\oficinas;
+use App\Models\Oficinas;
 use Illuminate\Http\Request;
 
 class OficinasController extends Controller
@@ -32,7 +32,23 @@ class OficinasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $validatedData = $request->validate([
+            'nombre_oficina' => 'required',
+            
+        ], [
+            'nombre_oficina.required' => 'El campo Oficina es obligatorio.',
+            
+        ]);
+        
+        $oficina = new Oficinas();
+        $oficina->nombre_oficina = $request->input('nombre_oficina');
+
+        if($oficina->save()){
+            return redirect()->route('agregar-oficina.index')->with('message', 'Se registro exitosamente la oficina.');
+        }else{
+            return redirect()->route('agregar-oficina.index')->with('error', 'Ocurrió un error al registrar la oficina.');
+        }
     }
 
     /**

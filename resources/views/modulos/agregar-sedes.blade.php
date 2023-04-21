@@ -48,7 +48,7 @@
                     @csrf    
                         <div class="grid gap-6 mb-6 md:grid-cols-2">
                             <div>
-                                <input type="text" id="first_name" class="block appearance-none w-full bg-gray-200 border border-black-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="Ingrese la Sede" required>
+                                <input type="text" id="first_name" class="block appearance-none w-full bg-gray-200 border border-black-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="Ingrese la Sede" name="nombre_sede" required>
                             </div>
                             <div class="flex flex-col">
                                 <button class="mb-4 mx-16 bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 ml-2 rounded">

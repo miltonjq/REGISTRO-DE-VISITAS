@@ -17,17 +17,18 @@ return new class extends Migration
             $table->string('nombres');
             $table->string('apellidos');
             $table->dateTime('fecha_y_hora');
-            $table->string('sede');
-            $table->string('oficina');
-            
             
             $table->timestamps();
         });
         
         Schema::table('visitas', function (Blueprint $table) {
             $table->unsignedBigInteger('personero_id');
+            $table->unsignedBigInteger('oficina_id');
+            $table->unsignedBigInteger('sede_id');
             
             $table->foreign('personero_id')->references('id')->on('users');
+            $table->foreign('oficina_id')->references('id')->on('oficinas');
+            $table->foreign('sede_id')->references('id')->on('sedes');
         });
     }
 

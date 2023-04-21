@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\sedes;
+use App\Models\Sedes;
 use Illuminate\Http\Request;
 
 class SedesController extends Controller
@@ -30,7 +30,22 @@ class SedesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nombre_sede' => 'required',
+            
+        ], [
+            'nombre_sede.required' => 'El campo Sede es obligatorio.',
+            
+        ]);
+        
+        $oficina = new Sedes();
+        $oficina->nombre_sede = $request->input('nombre_sede');
+
+        if($oficina->save()){
+            return redirect()->route('agregar-sedes.index')->with('message', 'Se registro exitosamente la sede.');
+        }else{
+            return redirect()->route('agregar-sedes.index')->with('error', 'Ocurrió un error al registrar la sede.');
+        }
     }
 
     /**

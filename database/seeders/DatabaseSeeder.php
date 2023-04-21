@@ -14,14 +14,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        //Oficina and Sede
+        $this->call(OficinaSeeder::class);
+        $this->call(SedeSeeder::class);
+        
         //Roles y Premises
         $this->call(RoleSeeder::class);
         //Basic Users
         $this->call(UserSeeder::class);
-
+        
         User::factory(3)->create()->each(function($user){
             $user->assignRole('personero');
         });
+        
+
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
