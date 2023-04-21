@@ -27,6 +27,11 @@ class VisitasController extends Controller
         return view('modulos.registrar-visita', ['oficinas' => $oficinas, 'sedes'=> $sedes]);
     }
 
+    public function reporte()
+    {
+        return view('modulos.reporte-visitas');
+    }
+
     /**
      * Show the form for creating a new resource.
      */

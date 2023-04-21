@@ -3,7 +3,7 @@
         <div class="p-4 sm:ml-64">
             <div class="p-10 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
                 <div>
-                    <h2 class="mb-6 h-16 pl-96 text-3xl text-gray-800 font-extrabold">AGREGAR OFICINAS </h2>
+                    <h2 class="h-16 text-center text-3xl text-gray-800 font-extrabold">AGREGAR OFICINAS </h2>
                 </div>
                 
                 @if(session('message'))
@@ -60,10 +60,9 @@
 
                 <!--Card-->
                 <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
-                    <div>
-                        <h3 class="h-12 pl-96 text-2xl text-gray-800 font-extrabold">Tabla de Registro </h3>
-                    </div>
+                    
                     <table id="tabla1" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
+                        <h3 class="h-16 text-center text-3xl text-gray-800 font-extrabold">Tabla de Registro </h3>
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -101,14 +100,14 @@
                     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
                     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
                     <script>
-                    $(document).ready(function() {
+                        $(document).ready(function() {
 
-                    var table = $('#tabla1').DataTable({
-                            responsive: true
-                        })
-                        .columns.adjust()
-                        .responsive.recalc();
-                    });
+                        var table = $('#tabla1').DataTable({
+                                responsive: true
+                            })
+                            .columns.adjust()
+                            .responsive.recalc();
+                        });
                     </script>
         
                 </div>
