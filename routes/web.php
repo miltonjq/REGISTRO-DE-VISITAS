@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\VisitasController;
+use App\http\Controllers\OficinasController;
+use App\http\Controllers\SedesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,5 +30,9 @@ Route::middleware([
     })->name('dashboard');
 
     Route::resource('registrar-visita', VisitasController::class);
+    
+    Route::resource('agregar-oficina', OficinasController::class);
+
+    Route::resource('agregar-sedes', SedesController::class);
 });
 

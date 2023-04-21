@@ -1,28 +1,52 @@
 @extends('web')
 
 @section('content')
-
-    <section class="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:px-8">
+<!-- Hero section with background image, heading, subheading and button -->
+<div
+    class="relative overflow-hidden bg-cover bg-no-repeat"
+    style="
+      background-position: center;
+      background-image: url('img/puno.jpg');
+      height: 600px;
+    ">
+    <div
+      class="absolute bottom-0 left-0 right-0 top-0 w-full overflow-hidden bg-cover"
+      style="background-color: rgba(0, 0, 0, 0.75)">
+      <div class="flex h-full items-center justify-center">
+        <div class="px-6 text-center text-white md:px-12">
+            <img class="mx-auto h-48" src="img/escudo.png" alt="">
+            <h1 class="mb-6 text-4xl h-8 font-bold">Sistema de Registro de Visitas</h1>
+            <h3 class="mb-8 text-3xl h-8 font-bold">Gobierno Regional de Puno</h3>
+            <button
+                type="button"
+                class="inline-block rounded border-2 border-neutral-50 px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
+                data-te-ripple-init
+                data-te-ripple-color="light">
+                Get started
+            </button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- <section class="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:px-8">
+        <div class= " w-full">
+            <img src="img/gore.jpg"  class="absolute -z-10 h-screen h-auto max-w-full" alt="">
         <div class="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.9000),white)] opacity-20"></div>
-            <div class="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center"></div>
             <div class="mx-auto max-w-2xl lg:max-w-4xl">
-                <img class="mx-auto h-12" src="https://tailwindui.com/img/logos/workcation-logo-indigo-600.svg" alt="">
+                <img class="mx-auto h-48" src="img/escudo.png" alt="">
                 <figure class="mt-10">
                     <blockquote class="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
-                        <p>“Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.”</p>
+                        <p>Sistema de Registro de Visitas</p>
                     </blockquote>
                 <figcaption class="mt-10">
-                    <img class="mx-auto h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                    <div class="mt-4 flex items-center justify-center space-x-3 text-base">
-                    <div class="font-semibold text-gray-900">Judith Black</div>
-                    <svg viewBox="0 0 2 2" width="3" height="3" aria-hidden="true" class="fill-gray-900">
-                        <circle cx="1" cy="1" r="1" />
-                    </svg>
-                    <div class="text-gray-600">CEO of Workcation</div>
+                     <div class="mt-4 flex items-center justify-center space-x-3 text-base">
+                        <div class="text-gray-600">Gobiern Regional de Puno</div>
                     </div>
                 </figcaption>
                 </figure>
-        </div>
-    </section>
+            
+            </div>
+            </div>
+    </section> -->
 @endsection
 

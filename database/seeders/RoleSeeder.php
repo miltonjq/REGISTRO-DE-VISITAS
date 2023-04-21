@@ -23,6 +23,7 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'agregar_oficina'])->syncRoles([$admin]);
         Permission::create(['name' => 'agregar_usuario'])->syncRoles([$admin]);
         Permission::create(['name' => 'agregar_roles'])->syncRoles([$admin]);
+        Permission::create(['name' => 'agregar_sedes'])->syncRoles([$admin]);
     }
 }
 
