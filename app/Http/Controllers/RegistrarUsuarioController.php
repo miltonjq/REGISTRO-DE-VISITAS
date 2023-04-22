@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class RegistrarUsuarioController extends Controller
 {
@@ -21,7 +23,8 @@ class RegistrarUsuarioController extends Controller
 
     public function SeeUsers()
     {
-        return view('modulos.ver-usuarios');
+        $users = User::all();
+        return view('modulos.ver-usuarios', ['users' => $users]);
     }
 
     /**
@@ -37,7 +40,34 @@ class RegistrarUsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+$validatedData = $request->validate([
+            'nombre' => 'required',
+            'rol' => 'required',
+            'correo' => 'required',
+            'contrasena' => 'required|same:confirm_contrasena',
+            'confirm_contrasena' => 'required',
+        ], [
+            'nombre.required' => 'El campo Nombre es obligatorio.',
+            'rol.required' => 'El campo Rol es obligatorio.',
+            'correo.required' => 'El campo Email es obligatorio.',
+            'contrasena.required' => 'El campo Contraseña es obligatorio.',
+            'confirm_contrasena.required' => 'El campo Confirmar Contraseña es obligatorio.',
+            'contrasena.same' => 'Las contraseñas no coinciden.',
+        ]);
+
+        $user = new User();
+        $user->name = $request->input('nombre');
+        $user->email = $request->input('correo');
+        $user->password = Hash::make($request->input('contrasena'));
+        $user->assignRole($request->input('rol'));
+        
+        if($user->save()){
+            return redirect()->route('agregar-usuario.index')->with('message', 'Se registro exitosamente el usuario.');
+        }else{
+            return redirect()->route('agregar-usuario.index')->with('error', 'Ocurrió un error al registrar el usuario.');
+        }
+
+
     }
 
     /**

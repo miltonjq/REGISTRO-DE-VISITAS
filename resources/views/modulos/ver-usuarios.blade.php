@@ -9,17 +9,18 @@
                             <tr>
                                 <th scope="col" class="px-6 py-3">ID</th>
                                 <th scope="col" class="px-6 py-3">NOMBRES COMPLETOS</th>
-                                <th scope="col" class="px-6 py-3">DNI</th>
+                                <th scope="col" class="px-6 py-3">EMAIL</th>
                                 <th scope="col" class="px-6 py-3">ROL</th>
-                                <th scope="col" class="px-6 py-3"> </th>
+                                <th scope="col" class="px-6 py-3"></th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($users as $user)
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">1</td>
-                                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">123</td>
-                                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">AAAAA</td>
-                                <td scope="row" class="px-6 py-4 font-medium text-gray-900">SSSS</td>
+                                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$user->id}}</td>
+                                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$user->name}}</td>
+                                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$user->email}}</td>
+                                <td scope="row" class="px-6 py-4 font-medium text-gray-900">rol</td>
                                 <td scope="row" class="px-6 py-16">
                                     @csrf
                                     <button type="button" class="text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900">
@@ -30,6 +31,8 @@
                                     </button>
                                 </td>
                             </tr>
+                            @endforeach
+                            
                         </tbody>
                     </table>
                 </div>

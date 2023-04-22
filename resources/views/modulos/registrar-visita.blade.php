@@ -16,7 +16,6 @@
                             </span>
                         </div>
                         <script>
-                        
                         const successMessage = document.getElementById('success-message');
 
                         if (successMessage) {
