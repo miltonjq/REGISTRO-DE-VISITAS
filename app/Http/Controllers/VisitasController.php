@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\visitas;
 use App\Models\Oficinas;
 use App\Models\Sedes;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use GuzzleHttp;
+use Illuminate\Support\Facades\Auth;
 
 class VisitasController extends Controller
 {
@@ -29,7 +31,24 @@ class VisitasController extends Controller
 
     public function reporte()
     {
-        return view('modulos.reporte-visitas');
+        $user = Auth::user();
+
+        if($user->roles->first()->name == 'admin'){
+            $reportes = visitas::all();
+
+            return view('modulos.reporte-visitas', ['reportes' => $reportes]);
+
+        }else{
+            $reportes = User::find($user->id);
+
+            $reportes = $reportes->visitas;
+
+            return view('modulos.reporte-visitas', ['reportes' => $reportes]);
+        }
+
+
+        // dd($rolesUser);
+
     }
 
     /**
@@ -63,7 +82,7 @@ class VisitasController extends Controller
             'oficina.required' => 'El campo Oficina es obligatorio.',
             'personero_id.required' => 'El campo Personero es obligatorio.'
         ]);
-        
+
         $visita = new Visitas();
         $visita->dni = $request->input('dni');
         $visita->nombres = $request->input('nombres');

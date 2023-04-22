@@ -5,6 +5,9 @@
                 <div>
                     <h2 class="mb-6 h-16 pl-96 text-3xl text-gray-800 font-extrabold">REGISTRO DE VISITAS </h2>
                 </div>
+                <!-- function hello -->
+                
+
                 
                 @if(session('message'))
                     <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert" id="success-message">
