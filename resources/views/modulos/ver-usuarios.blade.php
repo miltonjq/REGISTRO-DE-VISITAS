@@ -3,74 +3,67 @@
         <div class="p-4 sm:ml-64">
             <div class="border-gray-200 rounded-lg dark:border-gray-700 mt-[4.5rem]">
                 <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
-                    <table id="example1" class="table table-striped table-bordered stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
-                        <h3 class="h-16 text-center text-3xl text-gray-800 font-extrabold">Tabla de Reportes de Registros </h3>
-                        <thead>
+                    <table id="example" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        <h3 class="h-16 text-center text-3xl text-gray-800 font-extrabold">Tabla de Registros de Usuarios</h3>
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
-                                <th>DNI</th>
-                                <th>NOMBRES</th>
-                                <th>APELLIDOS</th>
-                                <th>FECHA</th>
-                                <th>PERSONERO</th>
+                                <th scope="col" class="px-6 py-3">ID</th>
+                                <th scope="col" class="px-6 py-3">NOMBRES COMPLETOS</th>
+                                <th scope="col" class="px-6 py-3">DNI</th>
+                                <th scope="col" class="px-6 py-3">ROL</th>
+                                <th scope="col" class="px-6 py-3"> </th>
                             </tr>
                         </thead>
                         <tbody>
-                                <tr>
-                                    <td>123</td>
-                                    <td>AAAAA</td>
-                                    <td>SSSS</td>
-                                    <td>SDDDAS</td>
-                                    <td>SAAS</td>
-                                </tr>
-                            @endforeach
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">1</td>
+                                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">123</td>
+                                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">AAAAA</td>
+                                <td scope="row" class="px-6 py-4 font-medium text-gray-900">SSSS</td>
+                                <td scope="row" class="px-6 py-16">
+                                    @csrf
+                                    <button type="button" class="text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900">
+                                        Editar
+                                    </button>
+                                    <button type="submit" class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
+                                        Eliminar
+                                    </button>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
+                    <!-- jQuery -->
+                    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+                    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+                    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+                    <!--Datatables -->
+                    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+                    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+                    <script>
+                    $(document).ready(function () {
+                        var t = $('#example').DataTable({
+                            columnDefs: [
+                                {
+                                    searchable: false,
+                                    orderable: false,
+                                    targets: 0,
+                                },
+                            ],
+                            order: [[1, 'asc']],
+                            
+                        });
+                    
+                        t.on('order.dt search.dt', function () {
+                            let i = 1;
+                    
+                            t.cells(null, 0, { search: 'applied', order: 'applied' }).every(function (cell) {
+                                this.data(i++);
+                            });
+                        }).draw();
+                    });
+                </script>
             </div>
         </div>
-        <!-- jQuery -->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
-        <!--Datatables -->
-        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-        <!-- DataTables  & Plugins -->
-        <script src="plugins/datatables/jquery.dataTables.min.js"></script>
-        <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-        <script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-        <script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-        <script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-        <script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-        <script src="plugins/jszip/jszip.min.js"></script>
-        <script src="plugins/pdfmake/pdfmake.min.js"></script>
-        <script src="plugins/pdfmake/vfs_fonts.js"></script>
-        <script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-        <script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
-        <script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-        <script>
-           $(function () {
-                $("#example1").DataTable({
-                "responsive": true, "lengthChange": false, "autoWidth": false,
-                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-                }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-                $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false,
-                "responsive": true,
-                });
-            });
-        // $(document).ready(function() {
-
-        // var table = $('#tabla1').DataTable({
-        //         responsive: true
-        //     })
-        //     .columns.adjust()
-        //     .responsive.recalc();
-        // });
-        </script>
         </nav>
 </x-app-layout>

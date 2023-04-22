@@ -15,7 +15,7 @@
                                         NOMBRES Y APELLIDOS COMPLETOS:
                                     </label>
                                     <input type="hidden" name="personero_id" value="">
-                                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="personero_id" type="text" value="" >
+                                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="personero_id" type="text" value="" required>
                                 </div>
                             </div>
                             
@@ -25,7 +25,7 @@
                                     TIPO DE USUARIO:
                                     </label>
                                     <div class="relative">
-                                        <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="sede" name="sede">
+                                        <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="sede" name="sede" required>
                                             <option>Seleccione...</option>    
                                             
                                         </select>
@@ -34,17 +34,11 @@
                                     </div>
                                 </div>
                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="sede">
-                                    SEDE:
+                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="personero_id">
+                                        DNI:
                                     </label>
-                                    <div class="relative">
-                                        <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="sede" name="sede">
-                                            <option>Seleccione...</option>    
-                                            
-                                        </select>
-                                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                        </div>
-                                    </div>
+                                    <input type="hidden" name="personero_id" value="">
+                                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="••••••••••••••••" id="personero_id" type="text" value="" required>
                                 </div>
                             </div>
                             
@@ -54,14 +48,14 @@
                                         CONTRASEÑA:
                                     </label>
                                     <input type="hidden" name="personero_id" value="">
-                                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="••••••••••••••••" id="personero_id" type="text" value="" >
+                                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="••••••••••••••••" id="personero_id" type="text" value="" required>
                                 </div>
                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="personero_id">
                                         CONFIRMAR CONTRASEÑA:
                                     </label>
                                     <input type="hidden" name="personero_id" value="">
-                                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="••••••••••••••••" id="personero_id" type="text" value="" >
+                                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="••••••••••••••••" id="personero_id" type="text" value="" required>
                                 </div>
                             </div>
                         
