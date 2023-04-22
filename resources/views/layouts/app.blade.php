@@ -17,10 +17,13 @@
 	    <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
          
         <!-- DataTables -->
-        <script rel="stylesheet" src="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css"></script>
-        <script rel="stylesheet" src="plugins/datatables-responsive/css/responsive.bootstrap4.min.css"></script>
-        <script rel="stylesheet" src="plugins/datatables-buttons/css/buttons.bootstrap4.min.css"></script>
+        <!-- datatables -->
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+        <!-- datatables extension SELECT -->
+        <link rel="stylesheet" href="https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css">
         
+        <!-- extension BOTONES -->
+        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css">
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -28,6 +31,9 @@
         @livewireStyles
 
         <style>
+            table.dataTable thead, table.dataTable tfoot {
+           background: linear-gradient(to right, #3F5EFB, #FC466B);
+       }
             /*Overrides for Tailwind CSS */
 
             /*Form fields*/
@@ -129,8 +135,7 @@
 
             <!-- Page Content -->
             <main>
-                {{ $slot }} 
-                <!-- @yield('content') -->
+                {{ $slot }}
             </main>
         </div>
 

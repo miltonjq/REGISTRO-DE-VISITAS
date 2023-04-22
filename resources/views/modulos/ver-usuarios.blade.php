@@ -15,13 +15,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($reportes as $reporte)
                                 <tr>
-                                    <td>{{$reporte->dni}}</td>
-                                    <td>{{$reporte->nombres}}</td>
-                                    <td>{{$reporte->apellidos}}</td>
-                                    <td>{{$reporte->fecha_y_hora}}</td>
-                                    <td>{{$reporte->personero_id}}</td>
+                                    <td>123</td>
+                                    <td>AAAAA</td>
+                                    <td>SSSS</td>
+                                    <td>SDDDAS</td>
+                                    <td>SAAS</td>
                                 </tr>
                             @endforeach
                         </tbody>

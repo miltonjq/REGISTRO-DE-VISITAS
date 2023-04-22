@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\http\Controllers\VisitasController;
 use App\http\Controllers\OficinasController;
 use App\http\Controllers\SedesController;
+use App\http\Controllers\RegistrarUsuarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,8 +36,10 @@ Route::middleware([
     Route::resource('agregar-oficina', OficinasController::class);
 
     Route::resource('agregar-sedes', SedesController::class);
+
+    Route::resource('agregar-usuario', RegistrarUsuarioController::class);
+    Route::get('ver-usuarios', [RegistrarUsuarioController::class, 'SeeUsers']);
     
 });
 
-// Route::get('reporte-visitas', [VisitasController::class, 'reporte']);
 
