@@ -1,7 +1,14 @@
 <x-app-layout>
     <nav>
+        
         <div class="p-4 sm:ml-64">
-            <div class="p-4 border-2 mt-20 grid grid-cols-12 gap-6">
+            <div class=" mt-20 h-24 ">
+                <h2 class="w-full flex justify-center items-center h-full text-5xl gap-4  font-extrabold">
+                    <span class="bg-gradient-to-r from-blue-500 to-blue-600 text-transparent bg-clip-text text-center leading-normal "> Gobierno Regional</span>    
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-purple-600 uppercase">Puno</span>
+                </h2>
+            </div>
+            <div class="p-4 border-2 mt-10 grid grid-cols-12 gap-6">
                 <a class="transform  hover:scale-105 transition duration-300 shadow-xl rounded-lg col-span-12 sm:col-span-6 xl:col-span-3 intro-y bg-white"
                     href="#">
                     <div class="p-5">
@@ -82,52 +89,6 @@
                         </div>
                     </div>
                 </a>
-                
-                {{-- <div class="grid grid-cols-3 gap-4 mb-4">
-                    <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
-                        <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-                    </div>
-                    <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
-                        <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-                    </div>
-                    <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
-                        <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-                    </div>
-                </div>
-                <div class="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
-                    <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-                </div>
-                <div class="grid grid-cols-2 gap-4 mb-4">
-                    <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                        <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-                    </div>
-                    <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                        <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-                    </div>
-                    <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                        <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-                    </div>
-                    <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                        <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-                    </div>
-                </div>
-                <div class="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
-                    <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-                </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                        <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-                    </div>
-                    <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                        <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-                    </div>
-                    <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                        <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-                    </div>
-                    <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                        <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-                    </div>
-                </div> --}}
             </div>
         </div>
         <div class="p-4 sm:ml-64">
