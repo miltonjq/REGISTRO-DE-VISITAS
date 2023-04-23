@@ -17,6 +17,11 @@ class RegistrarVisita2 extends Component
     {
         $this->dni = $dni;
         
+        // Validating the input field with name dni
+        $this->validate([
+            'dni' => 'required'
+        ]);
+        
         if($this->dni != ''){
             $response = Http::withHeaders([
                 'Authorization' => 'Bearer apis-token-2804.FPvCidtev1tYKiT9b30AK4paQT0P3WgK',
@@ -24,9 +29,16 @@ class RegistrarVisita2 extends Component
     
             $data = json_decode($response->getBody()->getContents());
     
-            $dni = $data->numeroDocumento;
-            $this->nombre = $data->nombres;
-            $this->apellido = $data->apellidoPaterno.' '.$data->apellidoMaterno;
+            if(isset($data->numeroDocumento)){
+                $dni = $data->numeroDocumento;
+                $this->nombre = $data->nombres;
+                $this->apellido = $data->apellidoPaterno.' '.$data->apellidoMaterno;
+            } else {
+                $this->dni = '';
+                $this->nombre = '';
+                $this->apellido = '';
+                $this->addError('dni', 'El DNI ingresado no existe');
+            }
         }    
     }
 
@@ -35,3 +47,4 @@ class RegistrarVisita2 extends Component
         return view('livewire.registrar-visita2');
     }
 }
+

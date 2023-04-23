@@ -71,7 +71,7 @@ class VisitasController extends Controller
         
         // dd($request);
         $validatedData = $request->validate([
-            'dni' => 'required',
+            'dni' => 'required|digits:8',
             'nombres' => 'required',
             'apellidos' => 'required',
             'fecha_y_hora' => 'required',
@@ -80,6 +80,7 @@ class VisitasController extends Controller
             'personero_id' => 'required'
         ], [
             'dni.required' => 'El campo DNI es obligatorio.',
+            'dni.digits' => 'El campo DNI debe contener 8 números.',
             'nombres.required' => 'El campo Nombres es obligatorio.',
             'apellidos.required' => 'El campo Apellidos es obligatorio.',
             'fecha_y_hora.required' => 'El campo Fecha y Hora es obligatorio.',
@@ -87,6 +88,7 @@ class VisitasController extends Controller
             'oficina.required' => 'El campo Oficina es obligatorio.',
             'personero_id.required' => 'El campo Personero es obligatorio.'
         ]);
+
 
         $visita = new Visitas();
         $visita->dni = $request->input('dni');
