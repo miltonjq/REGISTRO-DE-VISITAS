@@ -23,6 +23,9 @@ class VisitasController extends Controller
      */
     public function index()
     {
+        
+        date_default_timezone_set("America/Lima");
+        
         $oficinas = Oficinas::all();
         $sedes = Sedes::all();
 
@@ -64,6 +67,8 @@ class VisitasController extends Controller
      */
     public function store(Request $request)
     {
+        date_default_timezone_set("America/Lima");
+        
         // dd($request);
         $validatedData = $request->validate([
             'dni' => 'required',
@@ -87,7 +92,7 @@ class VisitasController extends Controller
         $visita->dni = $request->input('dni');
         $visita->nombres = $request->input('nombres');
         $visita->apellidos = $request->input('apellidos');
-        $visita->fecha_y_hora = $request->input('fecha_y_hora');
+        $visita->fecha_y_hora = date('Y-m-d\TH:i:s');
         $visita->sede_id = $request->input('sede');
         $visita->oficina_id = $request->input('oficina');
         $visita->personero_id = $request->input('personero_id');

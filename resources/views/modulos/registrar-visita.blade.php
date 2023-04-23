@@ -52,7 +52,7 @@
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="fecha_y_hora">
                                     FECHA Y HORA DE REGISTRO
                                 </label>
-                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="fecha_y_hora" name="fecha_y_hora" type="datetime-local" placeholder="" value="{{ date('Y-m-d\TH:i:s') }}">
+                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="fecha_y_hora" name="fecha_y_hora" type="datetime-local" placeholder="" value="{{ date('Y-m-d\TH:i:s') }}" readonly>
                                 @error('fecha_y_hora')
                                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                 @enderror
@@ -101,8 +101,8 @@
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="personero_id">
                                     PERSONERO
                                 </label>
-                                <input type="hidden" name="personero_id" value="{{  Auth::user()->id }}">
-                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="personero_id" type="text" value="{{ Auth::user()->name }}" >
+                                <input type="hidden" name="personero_id" value="{{  Auth::user()->id }}" readonly>
+                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="personero_id" type="text" value="{{ Auth::user()->name }}" readonly>
                             </div>
                         </div>
                         
