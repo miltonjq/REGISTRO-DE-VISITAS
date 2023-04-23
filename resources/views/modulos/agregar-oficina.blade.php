@@ -74,7 +74,7 @@
                         @foreach ($oficinas as $oficina)
                             <tr>
                                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$oficina->id}}</td>
-                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$oficina->nombre_oficina}}</td>
+                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black capitalize">{{$oficina->nombre_oficina}}</td>
                                 <td class="px-6 py-16">
                                     <form action="{{ route('agregar-oficina.destroy', $oficina->id) }}" method="POST">
                                         @csrf

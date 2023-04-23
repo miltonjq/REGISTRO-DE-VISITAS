@@ -66,6 +66,5 @@ class User extends Authenticatable
     public function visitas()
     {
         return $this->hasMany(Visitas::class, 'personero_id');
-    }
-
+    } 
 }

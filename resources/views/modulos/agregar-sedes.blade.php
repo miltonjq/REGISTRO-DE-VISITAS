@@ -74,7 +74,7 @@
                         @foreach ($sedes as $sede)
                             <tr>
                                 <td class="font-medium text-gray-900 dark:text-black">{{$sede->id}}</td>
-                                <td class="font-medium text-gray-900 dark:text-black">{{$sede->nombre_sede}}</td>
+                                <td class="font-medium text-gray-900 dark:text-black capitalize">{{$sede->nombre_sede}}</td>
                                 <td>
                                     <form action="{{ route('agregar-sedes.destroy', $sede->id) }}" method="POST">
                                         @csrf
