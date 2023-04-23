@@ -10,7 +10,7 @@
                 </svg>
             </button>
             <a href="{{ route('home') }}" class="flex ml-2 md:mr-24">
-                <img src="img/escudo.png" class="h-12 mr-3" />
+                <img src="https://i.postimg.cc/QdcW0c18/escudo.png" class="h-12 mr-3" />
                 <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Registro Visitas</span>
             </a>
         </div>

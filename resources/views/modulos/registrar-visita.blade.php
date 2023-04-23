@@ -4,7 +4,7 @@
             <div class="border-gray-200 rounded-lg dark:border-gray-700 mt-[4.5rem]">
                 <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
                     <div>
-                        <h2 class="h-16 text-center text-3xl text-gray-800 font-extrabold">REGISTRO DE VISITAS </h2>
+                        <h2 class="h-16 text-center text-3xl text-gray-800 font-extrabold">REGISTRO DE VISITAS - GOBIERNO REGIONAL PUNO</h2>
                     </div>
                     <!-- function hello -->
                     @if(session('message'))
