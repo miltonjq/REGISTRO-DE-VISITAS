@@ -11,6 +11,8 @@
                                 <th>NOMBRES</th>
                                 <th>APELLIDOS</th>
                                 <th>FECHA</th>
+                                <th>OFICINA</th>
+                                <th>SEDE</th>
                                 <th>PERSONERO</th>
                             </tr>
                         </thead>
@@ -21,6 +23,8 @@
                                     <td class="text-xs px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$reporte->nombres}}</td>
                                     <td class="text-xs px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$reporte->apellidos}}</td>
                                     <td class="text-xs px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$reporte->fecha_y_hora}}</td>
+                                    <td class="text-xs px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$reporte->oficina_id}}</td>
+                                    <td class="text-xs px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$reporte->sede_id}}</td>
                                     <td class="text-xs px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$reporte->personero_id}}</td>
                                 </tr>
                             @endforeach

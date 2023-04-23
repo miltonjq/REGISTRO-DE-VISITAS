@@ -11,6 +11,9 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+        <!-- Favicon -->
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
         <!-- DataTables -->
         <link rel="stylesheet" href="plugins/css/jquery.dataTables.min.css">
         <link rel="stylesheet" href="plugins/css/buttons.dataTables.min.css">

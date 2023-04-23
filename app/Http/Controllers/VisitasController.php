@@ -34,6 +34,9 @@ class VisitasController extends Controller
 
     public function reporte()
     {
+        $oficinas = Oficinas::all();
+        $sedes = Sedes::all();
+
         $user = Auth::user();
 
         if($user->roles->first()->name == 'admin'){
