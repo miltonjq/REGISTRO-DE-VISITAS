@@ -8,10 +8,10 @@
             <p class="text-red-500 text-xs italic">{{ $message }}</p>
         @enderror
         <script>
-            const inputDni = document.getElementById('dni');
-            
-            inputDni.addEventListener('submit', (event) => {
-                event.preventDefault(); 
+            document.getElementById('dni').addEventListener('keypress', function(event) {
+                if (event.keyCode === 13) { 
+                    event.preventDefault();
+                }
             });
         </script>
     </div>
