@@ -1,5 +1,5 @@
-<x-action-section>
-    <x-slot name="title">
+<!-- <x-action-section> -->
+    <!-- <x-slot name="title">
         {{ __('Browser Sessions') }}
     </x-slot>
 
@@ -14,7 +14,7 @@
 
         @if (count($this->sessions) > 0)
             <div class="mt-5 space-y-6">
-                <!-- Other Browser Sessions -->
+                
                 @foreach ($this->sessions as $session)
                     <div class="flex items-center">
                         <div>
@@ -61,7 +61,7 @@
             </x-action-message>
         </div>
 
-        <!-- Log Out Other Devices Confirmation Modal -->
+ 
         <x-dialog-modal wire:model="confirmingLogout">
             <x-slot name="title">
                 {{ __('Log Out Other Browser Sessions') }}
@@ -94,5 +94,5 @@
                 </x-button>
             </x-slot>
         </x-dialog-modal>
-    </x-slot>
-</x-action-section>
+    </x-slot> -->
+<!-- </x-action-section> -->

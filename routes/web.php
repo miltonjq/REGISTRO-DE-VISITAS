@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard;
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\VisitasController;
 use App\http\Controllers\OficinasController;
@@ -26,9 +27,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [Dashboard::class, 'index'])->name('dashboard');
 
     Route::resource('registrar-visita', VisitasController::class);
     Route::get('reporte-visitas', [VisitasController::class, 'reporte']);
