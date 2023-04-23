@@ -7,6 +7,13 @@
         @error('dni')
             <p class="text-red-500 text-xs italic">{{ $message }}</p>
         @enderror
+        <script>
+            const inputDni = document.getElementById('dni');
+            
+            inputDni.addEventListener('submit', (event) => {
+                event.preventDefault(); 
+            });
+        </script>
     </div>
     <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="nombres">

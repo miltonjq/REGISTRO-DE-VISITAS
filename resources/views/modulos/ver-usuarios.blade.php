@@ -44,28 +44,28 @@
                     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
                     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
                     <script>
-                    $(document).ready(function () {
-                        var t = $('#example').DataTable({
-                            columnDefs: [
-                                {
-                                    searchable: false,
-                                    orderable: false,
-                                    targets: 0,
-                                },
-                            ],
-                            order: [[1, 'asc']],
-                            
-                        });
-                    
-                        t.on('order.dt search.dt', function () {
-                            let i = 1;
-                    
-                            t.cells(null, 0, { search: 'applied', order: 'applied' }).every(function (cell) {
-                                this.data(i++);
+                        $(document).ready(function () {
+                            var t = $('#example').DataTable({
+                                columnDefs: [
+                                    {
+                                        searchable: false,
+                                        orderable: false,
+                                        targets: 0,
+                                    },
+                                ],
+                                order: [[1, 'asc']],
+                                
                             });
-                        }).draw();
-                    });
-                </script>
+                        
+                            t.on('order.dt search.dt', function () {
+                                let i = 1;
+                        
+                                t.cells(null, 0, { search: 'applied', order: 'applied' }).every(function (cell) {
+                                    this.data(i++);
+                                });
+                            }).draw();
+                        });
+                    </script>
             </div>
         </div>
         </nav>

@@ -44,7 +44,7 @@
                         }
                     </script>
                     @endif
-                    <form class="" method="POST" action="{{ route('registrar-visita.store') }}" >
+                    <form class="" method="POST" action="{{ route('registrar-visita.store') }}" id="formRegistrarVisita">
                         @csrf    
                         <div class="flex flex-col gap-6 ">
                             <livewire:registrar-visita2 />                     <div class="flex flex-wrap -mx-3 mb-2">
@@ -113,6 +113,7 @@
                         </div>
                         </div>
                     </form>
+                    
                 </div>
             </div>
         </div>
