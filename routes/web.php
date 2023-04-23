@@ -38,7 +38,7 @@ Route::middleware([
     Route::resource('agregar-sedes', SedesController::class);
 
     Route::resource('agregar-usuario', RegistrarUsuarioController::class);
-    Route::get('ver-usuarios', [RegistrarUsuarioController::class, 'SeeUsers']);
+    Route::get('ver-usuarios', [RegistrarUsuarioController::class, 'SeeUsers'])->name('ver-usuarios');
     
 });
 

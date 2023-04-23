@@ -97,8 +97,16 @@ $validatedData = $request->validate([
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        if($user){
+            return redirect()->route('ver-usuarios')->with('message', 'Se elimino correctamente al Usuario.');
+        }else{
+            return redirect()->route('ver-usuarios')->with('error', 'Ocurrió un error al eliminar al Usuario.');
+        }
     }
 }
