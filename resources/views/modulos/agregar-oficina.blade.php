@@ -61,9 +61,9 @@
                 <!--Card-->
                 <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
                     
-                    <table id="tabla1" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
+                    <table id="tabla02" class="table table-striped table-bordered stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
                         <h3 class="h-16 text-center text-3xl text-gray-800 font-extrabold">Tabla de Registro </h3>
-                        <thead>
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th>ID</th>
                                 <th>NOMBRE DE LA OFICINA</th>
@@ -73,9 +73,9 @@
                         <tbody>
                         @foreach ($oficinas as $oficina)
                             <tr>
-                                <td>{{$oficina->id}}</td>
-                                <td>{{$oficina->nombre_oficina}}</td>
-                                <td>
+                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$oficina->id}}</td>
+                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$oficina->nombre_oficina}}</td>
+                                <td class="px-6 py-16">
                                     <form action="{{ route('agregar-oficina.destroy', $oficina->id) }}" method="POST">
                                         @csrf
                                         @method('delete')
@@ -91,25 +91,32 @@
 
                     </table>
                 </div>
-                <!--/container-->
 
-                    <!-- jQuery -->
-                    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
-                    <!--Datatables -->
-                    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-                    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-                    <script>
-                        $(document).ready(function() {
-
-                        var table = $('#tabla1').DataTable({
-                                responsive: true
-                            })
-                            .columns.adjust()
-                            .responsive.recalc();
-                        });
-                    </script>
-        
+                <!-- jQuery -->
+                <script src="plugins/js/jquery-3.5.1.js"></script>
+                <script src="plugins/js/jquery.dataTables.min.js"></script>
+                <script src="plugins/js/dataTables.buttons.min.js"></script>
+                <script src="plugins/js/jszip.min.js"></script>
+                <script src="plugins/js/pdfmake.min.js"></script>
+                <script src="plugins/js/vfs_fonts.js"></script>
+                <script src="plugins/js/buttons.html5.min.js"></script>
+                <script src="plugins/js/buttons.print.min.js"></script>
+                <script src="plugins/js/buttons.colVis.min.js"></script>
+                <script src="plugins/js/dataTables.responsive.min.js"></script>
+                <script>
+                    $(document).ready(function() {
+                        var table = $('#tabla02').DataTable( {
+                            lengthChange: false,
+                            dom: 'Bfrtip',
+                            responsive: true,
+                            buttons: [ 'copy', 'excel', 'pdf', 'print', 'colvis' ]
+                        } );
+                    
+                        // Insert at the top left of the table
+                        table.buttons().container()
+                            .appendTo( $('div.column.is-half', table.table().container()).eq(0) );
+                    } );
+                </script>
                 </div>
             </div>
         </nav>

@@ -3,25 +3,25 @@
         <div class="p-4 sm:ml-64">
             <div class="border-gray-200 rounded-lg dark:border-gray-700 mt-[4.5rem]">
                 <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
-                    <table id="example" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                    <table id="tabla04" class="table table-striped table-bordered stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
                         <h3 class="h-16 text-center text-3xl text-gray-800 font-extrabold">Tabla de Registros de Usuarios</h3>
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
-                                <th scope="col" class="px-6 py-3">ID</th>
-                                <th scope="col" class="px-6 py-3">NOMBRES COMPLETOS</th>
-                                <th scope="col" class="px-6 py-3">EMAIL</th>
-                                <th scope="col" class="px-6 py-3">ROL</th>
-                                <th scope="col" class="px-6 py-3"></th>
+                                <th>ID</th>
+                                <th>NOMBRES COMPLETOS</th>
+                                <th>EMAIL</th>
+                                <th>ROL</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($users as $user)
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$user->id}}</td>
-                                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$user->name}}</td>
-                                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$user->email}}</td>
-                                <td scope="row" class="px-6 py-4 font-medium text-gray-900">rol</td>
-                                <td scope="row" class="px-6 py-16">
+                            <tr>
+                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$user->id}}</td>
+                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$user->name}}</td>
+                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$user->email}}</td>
+                                <td class="px-6 py-4 font-medium text-gray-900">rol</td>
+                                <td class="px-6 py-16">
                                     @csrf
                                     <button type="button" class="text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900">
                                         Editar
@@ -36,36 +36,31 @@
                         </tbody>
                     </table>
                 </div>
-                    <!-- jQuery -->
-                    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-                    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-                    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-                    <!--Datatables -->
-                    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-                    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-                    <script>
-                        $(document).ready(function () {
-                            var t = $('#example').DataTable({
-                                columnDefs: [
-                                    {
-                                        searchable: false,
-                                        orderable: false,
-                                        targets: 0,
-                                    },
-                                ],
-                                order: [[1, 'asc']],
-                                
-                            });
-                        
-                            t.on('order.dt search.dt', function () {
-                                let i = 1;
-                        
-                                t.cells(null, 0, { search: 'applied', order: 'applied' }).every(function (cell) {
-                                    this.data(i++);
-                                });
-                            }).draw();
-                        });
-                    </script>
+                <!-- jQuery -->
+                <script src="plugins/js/jquery-3.5.1.js"></script>
+                <script src="plugins/js/jquery.dataTables.min.js"></script>
+                <script src="plugins/js/dataTables.buttons.min.js"></script>
+                <script src="plugins/js/jszip.min.js"></script>
+                <script src="plugins/js/pdfmake.min.js"></script>
+                <script src="plugins/js/vfs_fonts.js"></script>
+                <script src="plugins/js/buttons.html5.min.js"></script>
+                <script src="plugins/js/buttons.print.min.js"></script>
+                <script src="plugins/js/buttons.colVis.min.js"></script>
+                <script src="plugins/js/dataTables.responsive.min.js"></script>
+                <script>
+                    $(document).ready(function() {
+                        var table = $('#tabla04').DataTable( {
+                            lengthChange: false,
+                            dom: 'Bfrtip',
+                            responsive: true,
+                            buttons: [ 'copy', 'excel', 'pdf', 'print', 'colvis' ]
+                        } );
+                    
+                        // Insert at the top left of the table
+                        table.buttons().container()
+                            .appendTo( $('div.column.is-half', table.table().container()).eq(0) );
+                    } );
+                </script>
             </div>
         </div>
         </nav>

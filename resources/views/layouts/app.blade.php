@@ -11,20 +11,9 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-        <!--Regular Datatables CSS-->
-        <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
-	    <!--Responsive Extension Datatables CSS-->
-	    <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
-        
         <!-- DataTables -->
-        <!-- datatables -->
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
-        <!-- datatables extension SELECT -->
-        <link rel="stylesheet" href="https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css">
-        
-        <!-- extension BOTONES -->
-        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css">
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="plugins/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="plugins/css/buttons.dataTables.min.css">
         
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
