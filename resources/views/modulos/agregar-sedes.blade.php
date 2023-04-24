@@ -1,7 +1,7 @@
 <x-app-layout>
     <nav>
         <div class="p-4 sm:ml-64">
-            <div class="p-10 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
+            <div class="p-10 rounded-lg  mt-14">
                 <div>
                     <h2 class="h-16 text-center text-3xl text-gray-800 font-extrabold">AGREGAR SEDES </h2>
                 </div>

@@ -31,17 +31,14 @@
                 document.documentElement.classList.remove('dark')
             }
         </script>
-        <style>
-            
-        </style>
 </head>
 <body>
     <header>
-        <nav class=" shadow transition fixed z-20 w-full border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-[rgb(47,117,179)]">
+        <nav class=" shadow transition fixed z-20 w-full border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-[rgb(232,247,255)]">
             <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                 <a class="flex items-center">
                     <img src="img/escudo.png" class="mr-3 h-12 sm:h-9" alt="Flowbite Logo" />
-                    <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Sistema de Visitas</span>
+                    <span class="self-center text-xl font-semibold whitespace-nowrap text-sky-700">Sistema de visitas</span>
                 </a>
                 <div class="flex items-center lg:order-2">
                     <!-- <a href="#" class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Log in</a> -->
@@ -51,9 +48,8 @@
                             @auth
                                 <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-white-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Registro de Visitas</a>
                             @else
-                            <button type="button" class="text-white bg-blue-900 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                <a href="{{ route('login') }}">Ingresar</a>
-                                <svg aria-hidden="true" class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                            <button class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800 rounded">                                   
+                                <a href="{{ route('login') }}" >Ingresar <span aria-hidden="true">&rarr;</span></a>
                             </button>
                             
                                 <!-- <button class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800 rounded">                                   
@@ -74,13 +70,13 @@
                 <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
                     <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                         <li>
-                            <a class="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white" aria-current="page">Inicio</a>
+                            <a class="block py-2 pr-4 pl-3 text-sky-700 rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-sky-700" aria-current="page">Inicio</a>
                         </li>
                         <li>
-                            <a class="block py-2 pr-4 pl-3 text-white border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-white gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Información</a>
+                            <a class="block py-2 pr-4 pl-3 text-sky-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Información</a>
                         </li>
                         <li>
-                            <a class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-white lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Contacto</a>
+                            <a class="block py-2 pr-4 pl-3 text-sky-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0  lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Contacto</a>
                         </li>
                     </ul>
                 </div>
@@ -133,23 +129,7 @@
                 </li>
                 </ul>
             </div>
-            <div class="w-full lg:w-4/12 px-4">
-                <span class="block uppercase text-white text-sm font-semibold mb-2">Other Resources</span>
-                <ul class="list-unstyled">
-                <li>
-                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="#">MIT License</a>
-                </li>
-                <li>
-                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="#">Terms &amp; Conditions</a>
-                </li>
-                <li>
-                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="#">Privacy Policy</a>
-                </li>
-                <li>
-                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="#">Contact Us</a>
-                </li>
-                </ul>
-            </div>
+            
             </div>
         </div>
         </div>
@@ -165,7 +145,6 @@
     </div>
     </footer>
     
-
-    
 </body>
+  
 </html>
