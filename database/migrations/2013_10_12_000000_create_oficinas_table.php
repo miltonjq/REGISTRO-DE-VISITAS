@@ -14,7 +14,15 @@ return new class extends Migration
         Schema::create('oficinas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_oficina');
+            $table->string('piso');
             $table->timestamps();
+        });
+        
+        Schema::table('oficinas', function (Blueprint $table) {
+            $table->unsignedBigInteger('sede_id');
+            
+            $table->foreign('sede_id')->references('id')->on('sedes');
+
         });
     }
 

@@ -4,6 +4,8 @@ use App\Http\Controllers\Dashboard;
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\VisitasController;
 use App\http\Controllers\OficinasController;
+use App\Http\Controllers\RegistrarSalida;
+use App\Http\Controllers\RegistrarSalidaController;
 use App\http\Controllers\SedesController;
 use App\http\Controllers\RegistrarUsuarioController;
 
@@ -32,13 +34,14 @@ Route::middleware([
     Route::resource('registrar-visita', VisitasController::class);
     Route::get('reporte-visitas', [VisitasController::class, 'reporte']);
     
-    Route::resource('agregar-oficina', OficinasController::class);
+    Route::resource('agregar-   oficina', OficinasController::class);
 
     Route::resource('agregar-sedes', SedesController::class);
 
     Route::resource('agregar-usuario', RegistrarUsuarioController::class);
     Route::get('ver-usuarios', [RegistrarUsuarioController::class, 'SeeUsers'])->name('ver-usuarios');
     
+    Route::resource('registrar-salida', RegistrarSalidaController::class)->names('registrar-salida');
 });
 
 

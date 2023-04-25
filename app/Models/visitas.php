@@ -12,17 +12,12 @@ class Visitas extends Model
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, );
     }
 
     public function oficina()
     {
         return $this->belongsTo(Oficinas::class);
-    }
-    
-    public function sede()
-    {
-        return $this->belongsTo(Sedes::class);
     }
     
     public function personero()

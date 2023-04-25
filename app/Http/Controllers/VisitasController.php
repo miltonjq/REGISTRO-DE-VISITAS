@@ -40,10 +40,9 @@ class VisitasController extends Controller
         $user = Auth::user();
 
         if($user->roles->first()->name == 'admin'){
-            $reportes = visitas::all();
-
+            $reportes = Visitas::where('estado', '1')->get();
+          
             return view('modulos.reporte-visitas', ['reportes' => $reportes]);
-
         }else{
             $reportes = User::find($user->id);
 
@@ -78,7 +77,6 @@ class VisitasController extends Controller
             'nombres' => 'required',
             'apellidos' => 'required',
             'fecha_y_hora' => 'required',
-            'sede' => 'required',
             'oficina' => 'required',
             'personero_id' => 'required'
         ], [
@@ -87,7 +85,6 @@ class VisitasController extends Controller
             'nombres.required' => 'El campo Nombres es obligatorio.',
             'apellidos.required' => 'El campo Apellidos es obligatorio.',
             'fecha_y_hora.required' => 'El campo Fecha y Hora es obligatorio.',
-            'sede.required' => 'El campo Sede es obligatorio.',
             'oficina.required' => 'El campo Oficina es obligatorio.',
             'personero_id.required' => 'El campo Personero es obligatorio.'
         ]);
@@ -98,9 +95,12 @@ class VisitasController extends Controller
         $visita->nombres = $request->input('nombres');
         $visita->apellidos = $request->input('apellidos');
         $visita->fecha_y_hora = date('Y-m-d\TH:i:s');
-        $visita->sede_id = $request->input('sede');
-        $visita->oficina_id = $request->input('oficina');
+
+        $nombreOficina = Oficinas::where('nombre_oficina', $request->input('oficina'))->first();
+        $visita->oficina_id = $nombreOficina->id;
+        
         $visita->personero_id = $request->input('personero_id');
+        $visita->estado = '2';
 
         if($visita->save()){
             return redirect()->route('registrar-visita.index')->with('message', 'Se registro exitosamente la visita.');

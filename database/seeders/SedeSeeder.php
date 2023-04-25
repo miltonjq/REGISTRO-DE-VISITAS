@@ -15,7 +15,8 @@ class SedeSeeder extends Seeder
     public function run(): void
     {
         //
-        Sedes::create(['nombre_sede' => 'sede central gore',]);
-        Sedes::create(['nombre_sede' => 'sub sede gore',]);
+        Sedes::create(['nombre_sede' => 'sede central gore', 'direccion' => 'Jr. Deustua 356, Puno 21001']);
+        Sedes::create(['nombre_sede' => 'sub sede gore','direccion' => 'Jr Lima, 152']);
+        Sedes::create(['nombre_sede' => 'sede juliaca', 'direccion' => 'Jr Arequipa, 203']);
     }
 }

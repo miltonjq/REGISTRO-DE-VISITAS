@@ -47,76 +47,16 @@
                     <form class="" method="POST" action="{{ route('registrar-visita.store') }}" id="formRegistrarVisita">
                         @csrf    
                         <div class="flex flex-col gap-6 ">
-                            <livewire:registrar-visita2 />                     <div class="flex flex-wrap -mx-3 mb-2">
-                            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="fecha_y_hora">
-                                    REGISTRO DE ENTRADA
-                                </label>
-                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="fecha_y_hora" name="fecha_y_hora" type="datetime-local" placeholder="" value="{{ date('Y-m-d\TH:i:s') }}" readonly>
-                                @error('fecha_y_hora')
-                                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
-                                @enderror
-                            </div>
                             
-                            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="oficina">
-                                OFICINA
-                                </label>
-                                <div class="relative">
-                                    <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="oficina" name="oficina">
-                                        <option>Seleccione...</option>    
-                                        @foreach($oficinas as $oficina)    
-                                            <option value='{{$oficina->id}}' >{{$oficina->nombre_oficina}}</option>
-                                        @endforeach
-                                    </select>
-                                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                    </div>
-                                    @error('oficina')
-                                        <p class="text-red-500 text-xs italic">{{ $message }}</p>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="sede">
-                                SEDE
-                                </label>
-                                <div class="relative">
-                                    <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="sede" name="sede">
-                                        <option>Seleccione...</option>    
-                                        @foreach($sedes as $sede)    
-                                            <option value="{{$sede->id}}">{{$sede->nombre_sede}}</option>
-                                        @endforeach
-                                    </select>
-                                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                    </div>
-                                    @error('sede')
-                                        <p class="text-red-500 text-xs italic">{{ $message }}</p>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                        <div class=" flex flex-wrap -mx-3 mb-2">
-                            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="piso_id">
-                                    PISO
-                                </label>
-                                <input type="hidden" name="personero_id" value="" readonly>
-                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="personero_id" type="text" value="PISO 1" readonly>
-                            </div>
-                            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="personero_id">
-                                    PERSONERO
-                                </label>
-                                <input type="hidden" name="personero_id" value="{{  Auth::user()->id }}" readonly>
-                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="personero_id" type="text" value="{{ Auth::user()->name }}" readonly>
-                            </div>
-                        </div>
+                            @livewire('registrar-visita2', ['oficinas' => $oficinas, 'sedes' => $sedes])
+                            
+                            
                         
-                        <div class="flex flex-col">
-                            <button class="mb-4 mx-auto bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                                GUARDAR
-                            </button>
-                        </div>
+                            <div class="flex flex-col">
+                                <button class="mb-4 mx-auto bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                                    GUARDAR
+                                </button>
+                            </div>
                         </div>
                     </form>
                     

@@ -35,14 +35,17 @@ class SedesController extends Controller
     {
         $validatedData = $request->validate([
             'nombre_sede' => 'required',
+            'direccion' => 'required',
             
         ], [
             'nombre_sede.required' => 'El campo Sede es obligatorio.',
+            'direccion.required' => 'El campo Direccion es obligatorio.',
             
         ]);
         
         $oficina = new Sedes();
         $oficina->nombre_sede = $request->input('nombre_sede');
+        $oficina->direccion = $request->input('direccion');
 
         if($oficina->save()){
             return redirect()->route('agregar-sedes.index')->with('message', 'Se registro exitosamente la sede.');

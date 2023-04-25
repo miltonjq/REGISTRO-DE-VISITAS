@@ -58,11 +58,11 @@
                                 SEDE:
                                 </label>
                                 <div class="relative">
-                                    <select class="block appearance-none w-full bg-gray-200 border border-black-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="sede" name="sede">
+                                    <select class="block appearance-none w-full bg-gray-200 border border-black-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="sede" name="sede_id">
                                         <option>Seleccione...</option>    
-                                           
-                                        <option>RRHH</option>
-                                        
+                                        @foreach($sedes as $sede)   
+                                            <option value="{{$sede->id}}" >{{$sede->nombre_sede}}</option>
+                                        @endforeach
                                     </select>
                                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                                     </div>
@@ -72,11 +72,13 @@
                                 </div>
                             </div>
                             <div>
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="personero_id">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="piso">
                                     PISO:
                                 </label>
-                                <input type="hidden" name="piso_id" value="" readonly>
-                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-black-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="piso_id" type="text" value="" readonly>
+                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-black-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="piso" type="text" value="" name="piso">
+                                @error('piso')
+                                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                                @enderror
                             </div>
                             <div class="flex flex-col py-7">
                                 <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 rounded-lg">
@@ -105,8 +107,8 @@
                             <tr>
                                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$oficina->id}}</td>
                                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black capitalize">{{$oficina->nombre_oficina}}</td>
-                                <td class="font-medium text-gray-900 dark:text-black capitalize">NOMBRE SEDE</td>
-                                <td class="font-medium text-gray-900 dark:text-black capitalize">PISO 1</td>
+                                <td class="font-medium text-gray-900 dark:text-black capitalize">{{$oficina->sede->nombre_sede}}</td>
+                                <td class="font-medium text-gray-900 dark:text-black capitalize">{{$oficina->piso}}</td>
                                 <td class="px-6 py-16">
                                     <form action="{{ route('agregar-oficina.destroy', $oficina->id) }}" method="POST">
                                         @csrf
