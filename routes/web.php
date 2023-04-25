@@ -34,7 +34,7 @@ Route::middleware([
     Route::resource('registrar-visita', VisitasController::class);
     Route::get('reporte-visitas', [VisitasController::class, 'reporte']);
     
-    Route::resource('agregar-   oficina', OficinasController::class);
+    Route::resource('agregar-oficina', OficinasController::class);
 
     Route::resource('agregar-sedes', SedesController::class);
 
