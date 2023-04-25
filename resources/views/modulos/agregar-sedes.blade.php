@@ -46,12 +46,21 @@
                 @endif
                 <form class="" method="POST" action="{{ route('agregar-sedes.store') }}">
                     @csrf    
-                        <div class="grid gap-6 mb-6 md:grid-cols-2">
+                        <div class="grid gap-6 mb-6 md:grid-cols-3">
                             <div>
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="personero_id">
+                                    SEDE:
+                                </label>
                                 <input type="text" id="first_name" class="block appearance-none w-full bg-gray-200 border border-black-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="Ingrese la Sede" name="nombre_sede" required>
                             </div>
-                            <div class="flex flex-col">
-                                <button class="mb-4 mx-16 bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 ml-2 rounded">
+                            <div>
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="personero_id">
+                                    DIRECCIÓN:
+                                </label>
+                                <input type="text" id="address_name" class="block appearance-none w-full bg-gray-200 border border-black-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="Ingrese la dirección de la Sede" name="direccion_sede" required>
+                            </div>
+                            <div class="flex flex-col py-7">
+                                <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 rounded-lg">
                                     Agregar
                                 </button>
                             </div>
@@ -66,7 +75,8 @@
                         <thead class="text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th>ID</th>
-                                <th>NOMBRE DE LA OFICINA</th>
+                                <th>SEDE</th>
+                                <th>DIRECCIÓN</th>
                                 <th>ACTION</th>
                             </tr>
                         </thead>
@@ -75,6 +85,7 @@
                             <tr>
                                 <td class="font-medium text-gray-900 dark:text-black">{{$sede->id}}</td>
                                 <td class="font-medium text-gray-900 dark:text-black capitalize">{{$sede->nombre_sede}}</td>
+                                <td class="font-medium text-gray-900 dark:text-black capitalize">DIRECCIÓN</td>
                                 <td>
                                     <form action="{{ route('agregar-sedes.destroy', $sede->id) }}" method="POST">
                                         @csrf

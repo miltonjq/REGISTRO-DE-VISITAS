@@ -46,12 +46,40 @@
                 @endif
                 <form class="" method="POST" action="{{ route('agregar-oficina.store') }}">
                     @csrf    
-                        <div class="grid gap-6 mb-6 md:grid-cols-2">
+                        <div class="grid gap-6 mb-6 md:grid-cols-4">
                             <div>
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="sede">
+                                OFICINA:
+                                </label>
                                 <input type="text" id="first_name" class="block appearance-none w-full bg-gray-200 border border-black-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="Ingrese la Oficina" name='nombre_oficina' required>
                             </div>
-                            <div class="flex flex-col">
-                                <button class="mb-4 mx-16 bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 ml-2 rounded">
+                            <div>
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="sede">
+                                SEDE:
+                                </label>
+                                <div class="relative">
+                                    <select class="block appearance-none w-full bg-gray-200 border border-black-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="sede" name="sede">
+                                        <option>Seleccione...</option>    
+                                           
+                                        <option>RRHH</option>
+                                        
+                                    </select>
+                                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                    </div>
+                                    @error('sede')
+                                        <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="personero_id">
+                                    PISO:
+                                </label>
+                                <input type="hidden" name="piso_id" value="" readonly>
+                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-black-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="piso_id" type="text" value="" readonly>
+                            </div>
+                            <div class="flex flex-col py-7">
+                                <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 rounded-lg">
                                     Agregar
                                 </button>
                             </div>
@@ -67,6 +95,8 @@
                             <tr>
                                 <th>ID</th>
                                 <th>NOMBRE DE LA OFICINA</th>
+                                <th>SEDE</th>
+                                <th>PISO</th>
                                 <th>ACTION</th>
                             </tr>
                         </thead>
@@ -75,6 +105,8 @@
                             <tr>
                                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$oficina->id}}</td>
                                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black capitalize">{{$oficina->nombre_oficina}}</td>
+                                <td class="font-medium text-gray-900 dark:text-black capitalize">NOMBRE SEDE</td>
+                                <td class="font-medium text-gray-900 dark:text-black capitalize">PISO 1</td>
                                 <td class="px-6 py-16">
                                     <form action="{{ route('agregar-oficina.destroy', $oficina->id) }}" method="POST">
                                         @csrf
