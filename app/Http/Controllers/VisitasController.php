@@ -45,15 +45,12 @@ class VisitasController extends Controller
           
             return view('modulos.reporte-visitas', ['reportes' => $reportes]);
         }else{
-            $reportes = User::find($user->id);
+            $user = User::find($user->id);
 
-            $reportes = $reportes->visitas;
+            $reportes = $user->visitas->where('estado', '1');
 
             return view('modulos.reporte-visitas', ['reportes' => $reportes]);
         }
-
-
-        // dd($rolesUser);
 
     }
 

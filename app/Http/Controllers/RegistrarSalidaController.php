@@ -24,7 +24,7 @@ class RegistrarSalidaController extends Controller
         }else{
             $reportes = User::find($user->id);
 
-            $reportes = $reportes->visitas;
+            $reportes = $reportes->visitas->where('estado', '2');
 
             return view('modulos.registrar-salida', ['reportes' => $reportes]);
         }
@@ -60,7 +60,18 @@ class RegistrarSalidaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // dd($id);
+        date_default_timezone_set("America/Lima");
+
+        $visita = Visitas::find($id);
+        $visita->estado = '1';
+        $visita->fecha_y_hora_salida = date('Y-m-d\TH:i:s');
+
+        if($visita->save()){
+            return redirect()->route('registrar-salida.index')->with('message', 'Se registro exitosamente la salida.');
+        }else{
+            return redirect()->route('registrar-salida.index')->with('error', 'Ocurrió un error al registrar la salida.');
+        }
     }
 
     /**

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('nombres');
             $table->string('apellidos');
             $table->dateTime('fecha_y_hora');
+            $table->dateTime('fecha_y_hora_salida')->nullable();
             $table->string('estado');
             
             $table->timestamps();
