@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use GuzzleHttp;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class VisitasController extends Controller
 {
@@ -54,6 +55,15 @@ class VisitasController extends Controller
 
         // dd($rolesUser);
 
+    }
+
+    public function reportepdf()
+    {
+        $oficinas = Oficinas::all();
+        $sedes = Sedes::all();
+
+        $pdf = Pdf::loadView('modulos.reportePDF');
+        return $pdf->download('Visitas.pdf');
     }
 
     /**

@@ -36,16 +36,24 @@
                         @csrf    
                         <div class="flex flex-col gap-6 ">
                             <div class="flex flex-wrap -mx-3 mb-2">
-                                <div class="w-full px-3">
+                                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="nombre">
-                                        NOMBRES Y APELLIDOS COMPLETOS:
+                                        NOMBRES Y APELLIDOS:
                                     </label>
-                                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="nombre" type="text" name="nombre" value="" required>
+                                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="Ingrese nombres y apellidos completo" id="nombre" type="text" name="nombre" value="" required>
                                     @error('nombre')
                                         <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                     @enderror
                                 </div>
-
+                                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="nombre">
+                                        DNI:
+                                    </label>
+                                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="Ingrese su DNI" id="dni" type="number" name="dni" value="" required>
+                                    {{-- @error('nombre')
+                                        <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                                    @enderror --}}
+                                </div>
                             </div>
                             <div class="flex flex-wrap -mx-3 mb-2">
                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -93,6 +101,17 @@
                                     @error('confirm_contrasena')
                                         <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                     @enderror
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap -mx-3 mb-2">
+                                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="nombre">
+                                        N° CELULAR:
+                                    </label>
+                                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="999-999-999" id="celular" type="text" name="celular" value="" required>
+                                    {{-- @error('nombre')
+                                        <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                                    @enderror --}}
                                 </div>
                             </div>
                             <script>

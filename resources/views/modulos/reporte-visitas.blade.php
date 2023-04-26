@@ -3,6 +3,7 @@
         <div class="p-4 sm:ml-64">
             <div class="border-gray-200 rounded-lg dark:border-gray-700 mt-[4.5rem]">
                 <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
+                    <a href="{{ route('reportePDF') }}" class="btn btn-danger"> reporte</a>
                     <table id="tabla01" class="table table-striped table-bordered stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
                         <h3 class="h-16 text-center text-3xl text-gray-800 font-extrabold">Tabla de Reportes de Registros </h3>
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
