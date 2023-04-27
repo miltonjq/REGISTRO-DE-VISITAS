@@ -6,13 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Passes</title>
-    <link rel="stylesheet" href="{{ public_path('css/pdf.css') }}">
 </head>
 
 <body>
     <div id="header">
-        <img class="imgheader" src="{{ public_path('images/LOGO-GORE.png') }}" height="100" width="100">
-
+        <img class="imgheader" src="{{ public_path('img/logo_gore2.png') }}" height="100" width="100">
         <div class="infoheader">
             <h3>GOBIERNO REGIONAL DE PUNO</h3>
             <h4>Sistema de Papeletas de Salida - PASS</h4>

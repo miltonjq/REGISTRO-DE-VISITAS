@@ -19,7 +19,7 @@
                 <div>
                 <button x-on:click="open = true" type="button" class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" aria-expanded="false" data-dropdown-toggle="dropdown-user">
                     <span class="sr-only">Open user menu</span>
-                    <a href="" class="px-3 py-2 text-sm text-white">
+                    <a class="px-3 py-2 text-sm text-white">
                     {{ Auth::user()->name }}
                     </a>
                     <img class="w-8 h-8 rounded-full" src="{{ auth()->user()->profile_photo_url }}" alt="user photo">

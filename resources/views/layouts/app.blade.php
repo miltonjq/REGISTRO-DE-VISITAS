@@ -17,6 +17,8 @@
         <!-- DataTables -->
         <link rel="stylesheet" href="plugins/css/jquery.dataTables.min.css">
         <link rel="stylesheet" href="plugins/css/buttons.dataTables.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.4.0/css/dataTables.dateTime.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.dataTables.min.css">
         
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])

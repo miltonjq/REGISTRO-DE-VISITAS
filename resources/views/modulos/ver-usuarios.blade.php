@@ -82,26 +82,19 @@
                 <!-- jQuery -->
                 <script src="plugins/js/jquery-3.5.1.js"></script>
                 <script src="plugins/js/jquery.dataTables.min.js"></script>
-                <script src="plugins/js/dataTables.buttons.min.js"></script>
-                <script src="plugins/js/jszip.min.js"></script>
-                <script src="plugins/js/pdfmake.min.js"></script>
-                <script src="plugins/js/vfs_fonts.js"></script>
-                <script src="plugins/js/buttons.html5.min.js"></script>
-                <script src="plugins/js/buttons.print.min.js"></script>
-                <script src="plugins/js/buttons.colVis.min.js"></script>
-                <script src="plugins/js/dataTables.responsive.min.js"></script>
+                <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
                 <script>
                     $(document).ready(function() {
-                        var table = $('#tabla04').DataTable( {
-                            lengthChange: false,
-                            dom: 'Bfrtip',
-                            responsive: true,
-                            buttons: [ 'copy', 'excel', 'pdf', 'print', 'colvis' ]
+                        table = $('#tabla04').DataTable( {
+                            // lengthChange: false,
+                            // dom: 'Bfrtip',
+                            responsive: true
+                            // buttons: [ 'copy', 'excel', 'pdf', 'print', 'colvis' ]
                         } );
                     
                         // Insert at the top left of the table
-                        table.buttons().container()
-                            .appendTo( $('div.column.is-half', table.table().container()).eq(0) );
+                        // table.buttons().container()
+                        //     .appendTo( $('div.column.is-half', table.table().container()).eq(0) );
                     } );
                 </script>
             </div>
