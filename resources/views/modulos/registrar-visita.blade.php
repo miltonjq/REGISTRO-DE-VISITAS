@@ -64,4 +64,10 @@
             </div>
         </div>
     </nav>
+    <script>
+        addEventListener("load", (event) => {
+            let dni = document.getElementById('dni');
+            dni.focus();
+        });
+    </script>
 </x-app-layout>

@@ -44,7 +44,24 @@ class RegistrarSalidaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        date_default_timezone_set("America/Lima");
+
+        $visita = Visitas::where('dni',$request->input('dni'))->where('estado', '2')->first();
+        // dd($visita);
+        
+        if($visita != null){
+            $visita->estado = '1';
+            $visita->fecha_y_hora_salida = date('Y-m-d\TH:i:s');
+        }else{
+            return redirect()->route('registrar-salida.index')->with('error', 'El usuario con DNI: '.$request->input('dni').' no tiene una visita pendiente.');
+        }
+        
+        if($visita->save()){
+            return redirect()->route('registrar-salida.index')->with('message', 'Se registro exitosamente la salida.');
+        }else{
+            return redirect()->route('registrar-salida.index')->with('error', 'Ocurrió un error al registrar la salida.');
+        }
     }
 
     /**
@@ -79,7 +96,21 @@ class RegistrarSalidaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        date_default_timezone_set("America/Lima");
+
+        $visita = Visitas::find($id);
+        $visita->estado = '1';
+        $visita->fecha_y_hora_salida = date('Y-m-d\TH:i:s');
+        
+        if($request){
+            $visita->observaciones = $request->observaciones;
+        }
+
+        if($visita->save()){
+            return redirect()->route('registrar-salida.index')->with('message', 'Se registro exitosamente la salida.');
+        }else{
+            return redirect()->route('registrar-salida.index')->with('error', 'Ocurrió un error al registrar la salida.');
+        }
     }
 
     /**
