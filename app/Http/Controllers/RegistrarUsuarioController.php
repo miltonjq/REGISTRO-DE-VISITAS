@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Visitas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -40,7 +41,7 @@ class RegistrarUsuarioController extends Controller
      */
     public function store(Request $request)
     {
-$validatedData = $request->validate([
+    $validatedData = $request->validate([
             'nombre' => 'required',
             'rol' => 'required',
             'correo' => 'required',
@@ -91,8 +92,9 @@ $validatedData = $request->validate([
      */
     public function update(Request $request, string $id)
     {
-        //
+       
     }
+
 
     /**
      * Remove the specified resource from storage.

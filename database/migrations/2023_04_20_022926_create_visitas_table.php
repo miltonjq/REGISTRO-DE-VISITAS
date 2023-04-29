@@ -19,6 +19,7 @@ return new class extends Migration
             $table->dateTime('fecha_y_hora');
             $table->dateTime('fecha_y_hora_salida')->nullable();
             $table->string('estado');
+            $table->string('observaciones')->nullable();
             
             $table->timestamps();
         });

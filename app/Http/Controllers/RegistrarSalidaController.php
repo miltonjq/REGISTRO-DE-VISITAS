@@ -96,20 +96,18 @@ class RegistrarSalidaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        date_default_timezone_set("America/Lima");
+        // dd($request);
+        $validatedData = $request->validate([
+            'observaciones' => 'nullable|string',
+        ]);
 
-        $visita = Visitas::find($id);
-        $visita->estado = '1';
-        $visita->fecha_y_hora_salida = date('Y-m-d\TH:i:s');
+        $visita = Visitas::findOrFail($id);
+        $visita->observaciones = $request->input('observaciones');
         
-        if($request){
-            $visita->observaciones = $request->observaciones;
-        }
-
         if($visita->save()){
-            return redirect()->route('registrar-salida.index')->with('message', 'Se registro exitosamente la salida.');
+            return redirect()->route('registrar-salida.index')->with('message', 'Se agrego correctamente la observacion para el usuario con DNI: '.$visita->dni);
         }else{
-            return redirect()->route('registrar-salida.index')->with('error', 'Ocurrió un error al registrar la salida.');
+            return redirect()->route('registrar-salida.index')->with('error', 'Ocurrión un error al agregar la observacion para el usuario con DNI: '.$visita->dni);
         }
     }
 
@@ -121,3 +119,4 @@ class RegistrarSalidaController extends Controller
         //
     }
 }
+

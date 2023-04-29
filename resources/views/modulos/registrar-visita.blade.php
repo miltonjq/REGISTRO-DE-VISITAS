@@ -52,11 +52,8 @@
                     <form class="" method="POST" action="{{ route('registrar-visita.store') }}" id="formRegistrarVisita">
                         @csrf    
                         <div class="flex flex-col gap-6 ">
-                            
                             @livewire('registrar-visita2', ['oficinas' => $oficinas, 'sedes' => $sedes])
                             
-                            
-                        
                             <div class="flex flex-col">
                                 <button class="mb-4 mx-auto bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
                                     GUARDAR
