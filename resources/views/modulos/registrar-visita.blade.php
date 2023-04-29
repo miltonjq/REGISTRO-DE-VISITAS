@@ -2,9 +2,14 @@
     <nav>
         <div class="p-4 sm:ml-64">
             <div class="border-gray-200 rounded-lg dark:border-gray-700 mt-[4.5rem]">
-                <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
+                <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white font-sans">
                     <div>
-                        <h2 class="h-16 text-center text-3xl text-gray-800 font-extrabold">REGISTRO DE VISITAS - GOBIERNO REGIONAL PUNO</h2>
+                        <h2 class="h-16 text-center text-3xl text-gray-900 font-sans"><strong>REGISTRO DE VISITAS - GOBIERNO REGIONAL PUNO</strong></h2>
+                    </div>
+                    <div class="pb-10 relative flex items-center">
+                        <div class="flex-grow border-t border-gray-400"></div>
+                            <span class="flex-shrink mx-4 text-gray-400">Gobierno Regional de Puno</span>
+                        <div class="flex-grow border-t border-gray-400"></div>
                     </div>
                     <!-- function hello -->
                     @if(session('message'))
@@ -65,6 +70,7 @@
         </div>
     </nav>
     <script>
+        
         addEventListener("load", (event) => {
             let dni = document.getElementById('dni');
             dni.focus();

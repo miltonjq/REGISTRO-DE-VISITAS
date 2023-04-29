@@ -2,13 +2,13 @@
     <nav>
         
         <div class="p-4 sm:ml-64">
-            <div class=" mt-20 h-24 ">
+            <div class=" mt-20 h-14 ">
                 <h2 class="w-full flex justify-center items-center h-full text-5xl gap-4  font-extrabold">
                     <span class="bg-gradient-to-r from-blue-500 to-blue-600 text-transparent bg-clip-text text-center leading-normal "> Gobierno Regional</span>    
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-purple-600 uppercase">Puno</span>
                 </h2>
             </div>
-            <div class="p-4 border-2 mt-10 grid grid-cols-12 gap-6">
+            <div class="p-4 border-2 mt-8  grid grid-cols-12 gap-6">
                 <a class="transform  hover:scale-105 transition duration-300 shadow-xl rounded-lg col-span-12 sm:col-span-6 xl:col-span-3 intro-y bg-white"
                     href="#">
                     <div class="p-5">

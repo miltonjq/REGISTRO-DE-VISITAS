@@ -1,10 +1,15 @@
 <x-app-layout>
     <nav>
-        <div class="p-4 sm:ml-64">
+        <div class="p-6 sm:ml-64">
             <div class="border-gray-200 rounded-lg dark:border-gray-700 mt-[4.5rem]">
                 <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white flex flex-col gap-6">
                     <div>
-                        <h2 class="h-16 text-center text-3xl text-gray-800 font-extrabold">AGREGAR NUEVO USUARIO</h2>
+                        <h2 class="py-2 text-center text-3xl text-gray-900 font-sans-extrabold "><strong>AGREGAR NUEVO USUARIO</strong></h2>
+                    </div>
+                    <div class="relative flex items-center">
+                        <div class="flex-grow border-t border-gray-400"></div>
+                        <span class="flex-shrink mx-4 text-gray-400">Gobierno Regional de Puno</span>
+                        <div class="flex-grow border-t border-gray-400"></div>
                     </div>
                     @if(session('message'))
                         <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">

@@ -1,10 +1,15 @@
 <x-app-layout>
     <nav>
-        <div class="p-4 sm:ml-64">
+        <div class="p-6 sm:ml-64">
             <div class="border-gray-200 rounded-lg dark:border-gray-700 mt-[4.5rem]">
                 <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
-                    <table id="tabla04" class="table table-striped table-bordered stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
-                        <h3 class="h-16 text-center text-3xl text-gray-800 font-extrabold">Tabla de Registros de Usuarios</h3>
+                    <table id="tabla04" class="table table-striped table-bordered stripe hover font-sans" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
+                        <h3 class="py-2 text-center text-3xl text-gray-900 font-sans-extrabold"><strong>TABLA DE REGISTRO DE USUARIOS</strong></h3>
+                        <div class="py-5 relative flex items-center">
+                            <div class="flex-grow border-t border-gray-400"></div>
+                            <span class="flex-shrink mx-4 text-gray-400">Gobierno Regional de Puno</span>
+                            <div class="flex-grow border-t border-gray-400"></div>
+                        </div>
                         @if(session('message'))
                             <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert" id="success-message">
                                 <strong class="font-bold">¡Éxito!</strong>
@@ -43,12 +48,14 @@
                             }
                         </script>
                         @endif
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white">
                             <tr>
                                 <th>ID</th>
                                 <th>NOMBRES COMPLETOS</th>
-                                <th>EMAIL</th>
+                                <th>DNI</th>
                                 <th>ROL</th>
+                                <th>EMAIL</th>
+                                <th>N° CELULAR</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -57,8 +64,10 @@
                             <tr>
                                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$user->id}}</td>
                                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$user->name}}</td>
-                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$user->email}}</td>
+                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">DNI</td>
                                 <td class="px-6 py-4 font-medium text-gray-900 capitalize">{{$user->roles->first()->name}}</td>
+                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$user->email}}</td>
+                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">N° CELULAR</td>
                                 <td class="px-6 py-16 flex gap-2">
                                     @csrf
                                     <button type="button" class="text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900">

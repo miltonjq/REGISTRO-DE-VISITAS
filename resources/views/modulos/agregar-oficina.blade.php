@@ -1,9 +1,9 @@
 <x-app-layout>
     <nav>
         <div class="p-4 sm:ml-64">
-            <div class="p-10 rounded-lg mt-20">
+            <div class="p-6 rounded-lg mt-12">
                 <div>
-                    <h2 class="h-16 text-center text-3xl text-gray-800 font-extrabold">AGREGAR OFICINAS </h2>
+                    <h2 class="py-4 text-center text-3xl text-gray-900 font-sans"><strong>AGREGAR OFICINAS</strong></h2>
                 </div>
                 
                 @if(session('message'))
@@ -75,7 +75,7 @@
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="piso">
                                     PISO:
                                 </label>
-                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-black-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="piso" type="text" value="" name="piso">
+                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-black-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="Ingrese el Piso" id="piso" type="text" value="" name="piso">
                                 @error('piso')
                                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                 @enderror
@@ -88,12 +88,18 @@
                         </div>
                 </form>
 
+                <div class="pb-14 relative flex items-center">
+                    <div class="flex-grow border-t border-gray-400"></div>
+                        <span class="flex-shrink mx-4 text-gray-400">Gobierno Regional de Puno</span>
+                    <div class="flex-grow border-t border-gray-400"></div>
+                </div>
+
                 <!--Card-->
                 <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
                     
-                    <table id="tabla02" class="table table-striped table-bordered stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
-                        <h3 class="h-16 text-center text-3xl text-gray-800 font-extrabold">Tabla de Registro </h3>
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <table id="tabla02" class="table table-striped table-bordered stripe hover font-sans" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
+                        <h3 class="py-2 text-center text-2xl text-gray-900 font-extrabold"><strong>TABLA DE REGISTRO</strong></h3>
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white">
                             <tr>
                                 <th>ID</th>
                                 <th>NOMBRE DE LA OFICINA</th>

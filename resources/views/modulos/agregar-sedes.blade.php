@@ -1,9 +1,9 @@
 <x-app-layout>
     <nav>
         <div class="p-4 sm:ml-64">
-            <div class="p-10 rounded-lg  mt-14">
+            <div class="p-6 rounded-lg  mt-12">
                 <div>
-                    <h2 class="h-16 text-center text-3xl text-gray-800 font-extrabold">AGREGAR SEDES </h2>
+                    <h2 class="py-4 text-center text-3xl text-gray-900 font-sans"><strong>AGREGAR SEDES</strong></h2>
                 </div>
                 
                 @if(session('message'))
@@ -67,11 +67,17 @@
                         </div>
                 </form>
 
+                <div class="pb-14 relative flex items-center">
+                    <div class="flex-grow border-t border-gray-400"></div>
+                        <span class="flex-shrink mx-4 text-gray-400">Gobierno Regional de Puno</span>
+                    <div class="flex-grow border-t border-gray-400"></div>
+                </div>
+
                 <!--Card-->
                 <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
-                    <table id="tabla03" class="table table-striped table-bordered stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
-                        <h3 class="h-16 text-center text-3xl text-gray-800 font-extrabold">Tabla de Registro de Sedes</h3>
-                        <thead class="text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <table id="tabla03" class="table table-striped table-bordered stripe hover font-sans" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
+                        <h3 class="py-2 text-center text-2xl text-gray-900 font-extrabold"><strong>TABLA DE REGISTRO DE SEDES</strong></h3>
+                        <thead class="text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-white">
                             <tr>
                                 <th>ID</th>
                                 <th>SEDE</th>
@@ -109,6 +115,7 @@
                         $('#tabla03').DataTable( {
                             responsive: true
                         } );
+                        $('select').css('width','4rem');
                     } );
                 </script>
         

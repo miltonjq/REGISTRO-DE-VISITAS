@@ -23,27 +23,6 @@
             <p>Derechos Reservados - 2023</p>
         </div>
     </div>
-
-    <div>
-        {{-- <div class="prueba">
-            <label>Nombre: </label>{{ $pass->user->name }}
-            <label>Codigo de Personal: </label>{{ $pass->user->ncard }}
-            <label>Cargo: </label>{{ $pass->charge->name_charge }}
-            <label>Dependencia: </label>{{ $pass->dependence->name_dependence }}
-            <label>Motivo de salida: </label>{{ $pass->motive }}
-        </div>
-        <div>
-            <label>Lugar: </label>{{ $pass->place }}
-            <label>Tiempo autorizado: </label>{{ $pass->time }}
-            <label>Hora de Salida Registrada: </label>{{ $pass->input }}
-            <label>Hora de ingreso registros: </label>{{ $pass->output }}
-            <label>Fecha: </label>{{ $pass->date }}
-        </div>
-        <div>
-            <label>Observaciones: </label>{{ $pass->observation }}
-        </div> --}}
-    </div>
-
 </body>
 
 </html>
