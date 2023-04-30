@@ -40,13 +40,15 @@ class RegistrarUsuarioController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-    $validatedData = $request->validate([
+    {        
+        $validatedData = $request->validate([
             'nombre' => 'required',
             'rol' => 'required',
             'correo' => 'required',
             'contrasena' => 'required|same:confirm_contrasena',
             'confirm_contrasena' => 'required',
+            'dni' => 'required',
+            'telefono' => 'required',
         ], [
             'nombre.required' => 'El campo Nombre es obligatorio.',
             'rol.required' => 'El campo Rol es obligatorio.',
@@ -54,11 +56,16 @@ class RegistrarUsuarioController extends Controller
             'contrasena.required' => 'El campo Contraseña es obligatorio.',
             'confirm_contrasena.required' => 'El campo Confirmar Contraseña es obligatorio.',
             'contrasena.same' => 'Las contraseñas no coinciden.',
+            'dni.required' => 'El campo DNI es obligatorio.',
+            'telefono.required' => 'El campo Telefono es obligatorio.',
         ]);
 
         $user = new User();
         $user->name = $request->input('nombre');
         $user->email = $request->input('correo');
+        $user->dni = $request->input('dni');
+        $user->telefono = $request->input('telefono');
+        
         $user->password = Hash::make($request->input('contrasena'));
         $user->assignRole($request->input('rol'));
         

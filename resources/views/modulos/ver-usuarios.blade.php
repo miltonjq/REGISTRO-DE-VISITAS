@@ -64,23 +64,26 @@
                             <tr>
                                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$user->id}}</td>
                                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$user->name}}</td>
-                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">DNI</td>
+                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$user->dni}}</td>
                                 <td class="px-6 py-4 font-medium text-gray-900 capitalize">{{$user->roles->first()->name}}</td>
                                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$user->email}}</td>
-                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">N° CELULAR</td>
-                                <td class="px-6 py-16 flex gap-2">
-                                    @csrf
-                                    <button type="button" class="text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900">
-                                        Editar
-                                    </button>
-                                    
-                                    <form action="{{ route('agregar-usuario.destroy', $user->id) }}" method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
-                                            Eliminar
+                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$user->telefono}}</td>
+                                <td class="px-6 py-16 flex gap-2 text-center  justify-center">
+                                    @if($user->roles->first()->name != 'admin')
+                                        <button type="button" class="text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900">
+                                            Editar
                                         </button>
-                                    </form>
+                                        
+                                        <form action="{{ route('agregar-usuario.destroy', $user->id) }}" method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
+                                                Eliminar
+                                            </button>
+                                        </form>
+                                    @else
+                                    <div class="uppercase font-bold text-center">Restricted</div>
+                                    @endif
                                 </td>
                             </tr>
                             @endforeach
@@ -101,9 +104,7 @@
                             // buttons: [ 'copy', 'excel', 'pdf', 'print', 'colvis' ]
                         } );
                     
-                        // Insert at the top left of the table
-                        // table.buttons().container()
-                        //     .appendTo( $('div.column.is-half', table.table().container()).eq(0) );
+                        $('select').css('width','4rem');
                     } );
                 </script>
             </div>

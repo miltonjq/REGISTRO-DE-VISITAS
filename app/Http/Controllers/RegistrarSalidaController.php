@@ -114,9 +114,16 @@ class RegistrarSalidaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+
+        $visita = Visitas::findOrFail($id);
+        
+        if($visita->delete()){
+            return redirect()->route('registrar-salida.index')->with('message', 'Se elimino correctamente el registro.');
+        }else{
+            return redirect()->route('registrar-salida.index')->with('error', 'Ocurrió un error al eliminar el registro.');
+        }
     }
 }
 

@@ -49,13 +49,13 @@
                         }
                     </script>
                     @endif
-                    <form class="" method="POST" action="{{ route('registrar-visita.store') }}" id="formRegistrarVisita">
+                    <form class="" method="POST" action="{{ route('registrar-visita.store') }}" id="formRegistrarVisita" >
                         @csrf    
                         <div class="flex flex-col gap-6 ">
                             @livewire('registrar-visita2', ['oficinas' => $oficinas, 'sedes' => $sedes])
                             
                             <div class="flex flex-col">
-                                <button class="mb-4 mx-auto bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                                <button class="mb-4 mx-auto bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" >
                                     GUARDAR
                                 </button>
                             </div>
@@ -66,11 +66,23 @@
             </div>
         </div>
     </nav>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         
         addEventListener("load", (event) => {
             let dni = document.getElementById('dni');
             dni.focus();
         });
+
+        document.getElementById('formRegistrarVisita').addEventListener('submit', () => {
+            
+            Swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: 'Se registro correctamente la visita.',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        })
     </script>
 </x-app-layout>

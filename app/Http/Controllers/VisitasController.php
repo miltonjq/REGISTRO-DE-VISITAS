@@ -12,10 +12,10 @@ use GuzzleHttp;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
 
+
 class VisitasController extends Controller
 {
     public function __construct() {
-
         $this->middleware('auth');
     }
     
@@ -46,7 +46,6 @@ class VisitasController extends Controller
             return view('modulos.reporte-visitas', ['reportes' => $reportes]);
         }else{
             $user = User::find($user->id);
-
             $reportes = $user->visitas->where('estado', '1');
 
             return view('modulos.reporte-visitas', ['reportes' => $reportes]);
@@ -109,6 +108,7 @@ class VisitasController extends Controller
         $visita->personero_id = $request->input('personero_id');
         $visita->estado = '2';
 
+        
         if($visita->save()){
             return redirect()->route('registrar-visita.index')->with('message', 'Se registro exitosamente la visita.');
         }else{

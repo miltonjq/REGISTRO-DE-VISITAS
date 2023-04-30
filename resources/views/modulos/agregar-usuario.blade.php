@@ -51,13 +51,13 @@
                                     @enderror
                                 </div>
                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="nombre">
+                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="dni">
                                         DNI:
                                     </label>
                                     <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="Ingrese su DNI" id="dni" type="number" name="dni" value="" required>
-                                    {{-- @error('nombre')
+                                     @error('dni')
                                         <p class="text-red-500 text-xs italic">{{ $message }}</p>
-                                    @enderror --}}
+                                    @enderror
                                 </div>
                             </div>
                             <div class="flex flex-wrap -mx-3 mb-2">
@@ -110,13 +110,13 @@
                             </div>
                             <div class="flex flex-wrap -mx-3 mb-2">
                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="nombre">
+                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="telefono">
                                         N° CELULAR:
                                     </label>
-                                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="999-999-999" id="celular" type="text" name="celular" value="" required>
-                                    {{-- @error('nombre')
+                                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="999-999-999" id="telefono" type="text" name="telefono" value="" required>
+                                    @error('telefono')
                                         <p class="text-red-500 text-xs italic">{{ $message }}</p>
-                                    @enderror --}}
+                                    @enderror 
                                 </div>
                             </div>
                             <script>
