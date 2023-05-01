@@ -40,7 +40,7 @@ class VisitasController extends Controller
 
         $user = Auth::user();
 
-        if($user->roles->first()->name == 'admin'){
+        if($user->roles->first()->name == 'admin' or $user->roles->first()->name == 'supervisor'){
             $reportes = Visitas::where('estado', '1')->get();
           
             return view('modulos.reporte-visitas', ['reportes' => $reportes]);
@@ -87,10 +87,10 @@ class VisitasController extends Controller
                         $now = Carbon::now();
                         
                         $ultimaVisitaTime = Carbon::parse($ultimaVisita->created_at);
-                        $diffInMinutes = $now->diffInMinutes($ultimaVisitaTime);
+                        $diffInMinutes = $now->diffInSeconds($ultimaVisitaTime);
                         
-                        if ($diffInMinutes < 2) {
-                            $fail('Ya se registró una visita con este DNI en los últimos 2 minutos.');
+                        if ($diffInMinutes < 10) {
+                            $fail('Ya se registró una visita con este DNI en los últimos 10 segundos.');
                         }
                     }
                 }

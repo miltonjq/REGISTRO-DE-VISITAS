@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class TablaRegistrarSalida extends Component
 {
     public $reportes;
+    public $message;
     // public $selectedReport;
     public $dni;
     public $selectedId;
@@ -40,7 +41,7 @@ class TablaRegistrarSalida extends Component
 
         $user = Auth::user();
 
-        if($user->roles->first()->name == 'admin'){
+        if($user->roles->first()->name == 'admin' or $user->roles->first()->name == 'supervisor'){
            
             $this->reportes = Visitas::where('estado', '2')
             ->where(function($query) use ($value){

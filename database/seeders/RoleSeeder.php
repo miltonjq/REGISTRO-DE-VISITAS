@@ -15,14 +15,16 @@ class RoleSeeder extends Seeder
     public function run(): void
     {
         $admin = Role::create(['name' => 'admin']);
-        $personero = Role::create(['name' => 'personero']);
+        $supervisor= Role::create(['name' => 'supervisor']);
+        $guardiania = Role::create(['name' => 'guardiania']);
 
-        Permission::create(['name' => 'inicio'])->syncRoles([$admin, $personero]);
-        Permission::create(['name' => 'registrar_visitas'])->syncRoles([$admin, $personero]);
-        Permission::create(['name' => 'registrar_salida'])->syncRoles([$admin, $personero]);
-        Permission::create(['name' => 'reporte_visitas'])->syncRoles([$admin, $personero]);
+        Permission::create(['name' => 'inicio'])->syncRoles([$admin, $guardiania, $supervisor]);
+        Permission::create(['name' => 'registrar_visitas'])->syncRoles([$admin, $guardiania]);
+        Permission::create(['name' => 'registrar_salida'])->syncRoles([$admin, $guardiania, $supervisor]);
+        Permission::create(['name' => 'reporte_visitas'])->syncRoles([$admin, $guardiania, $supervisor]);
         Permission::create(['name' => 'agregar_oficina'])->syncRoles([$admin]);
         Permission::create(['name' => 'agregar_usuario'])->syncRoles([$admin]);
+        Permission::create(['name' => 'ver_usuario'])->syncRoles([$admin, $supervisor]);
         Permission::create(['name' => 'agregar_roles'])->syncRoles([$admin]);
         Permission::create(['name' => 'agregar_sedes'])->syncRoles([$admin]);
     }

@@ -17,7 +17,7 @@ class RegistrarSalidaController extends Controller
         //
         $user = Auth::user();
 
-        if($user->roles->first()->name == 'admin'){
+        if($user->roles->first()->name == 'admin' or $user->roles->first()->name == 'supervisor'){
             $reportes = Visitas::where('estado', '2')->get();
           
             return view('modulos.registrar-salida', ['reportes' => $reportes]);
@@ -47,7 +47,7 @@ class RegistrarSalidaController extends Controller
         // dd($request);
         date_default_timezone_set("America/Lima");
 
-        $visita = Visitas::where('dni',$request->input('dni'))->where('estado', '2')->first();
+        $visita = Visitas::where('dni',$request->input('dni'))->where('estado', '2')->latest()->first();
         // dd($visita);
         
         if($visita != null){
@@ -77,10 +77,11 @@ class RegistrarSalidaController extends Controller
      */
     public function edit(string $id)
     {
-        // dd($id);
+        
         date_default_timezone_set("America/Lima");
-
+        
         $visita = Visitas::find($id);
+
         $visita->estado = '1';
         $visita->fecha_y_hora_salida = date('Y-m-d\TH:i:s');
 

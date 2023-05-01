@@ -14,9 +14,9 @@
                 <th>ENTRADA</th>
                 <th>OFICINA</th>
                 <th>PISO</th>
-                <th>Observaciones</th>
+                <th>OBSERVACIÓN</th>
                 <th>SALIDA</th>
-                <th>Accion</th>
+                <th>ACCION</th>
             </tr>
         </thead>
         <tbody>
@@ -31,6 +31,7 @@
                         <td class="text-xs px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black capitalize">{{$reporte->oficina->nombre_oficina}}</td>
                         <td class="text-xs px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black capitalize">{{$reporte->oficina->piso}}</td>
                         <td class="text-xs px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">
+                        @if(Auth::user()->roles->first()->name  != 'supervisor')
                             @if($reporte->observaciones)
                                 <button wire:click.prevent="$emit('selectReport', {{$reporte}})" type="button" class="block text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-2xl text-sm px-5 py-1 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" >
                                     Ver Obs.
@@ -40,25 +41,19 @@
                                     Agregar Obs.
                                 </button>
                             @endif
-    
+                        @else
+                            <div class="uppercase font-bold text-center">Restricted</div>
+                        @endif
                         </td>
                         <td class="text-xs px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">
+                        @if(Auth::user()->roles->first()->name  != 'supervisor')
                             <a href="{{route('registrar-salida.edit', $reporte->id)}}" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-3 py-1 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" id="registrarSalida">Registrar Salida</a>   
-                            <script>
-                                document.getElementById('registrarSalida').addEventListener('click', () => {
-            
-                                Swal.fire({
-                                    position: 'top-center',
-                                    icon: 'success',
-                                    title: 'Se registro correctamente la salida.',
-                                    showConfirmButton: false,
-                                    timer: 1500
-                                })
-                            })
-                            </script> 
+                        @else
+                            <div class="uppercase font-bold text-center">Restricted</div>
+                        @endif
                         </td>
                         <td class="text-xs px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">
-
+                        @if(Auth::user()->roles->first()->name  != 'supervisor')
                             <!-- <a href="{{route('registrar-salida.edit', $reporte->id)}}" class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-3 py-1 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Eliminar</a>    -->
                             <form action="{{ route('registrar-salida.destroy', $reporte->id) }}" method="POST" id="eliminarRegistroSalida">
                                 @csrf
@@ -67,18 +62,11 @@
                                     Eliminar
                                 </button>
                             </form>
-                            <script>
-                                document.getElementById('eliminarRegistroSalida').addEventListener('submit', () => {
-            
-                                Swal.fire({
-                                        position: 'top-center',
-                                        icon: 'success',
-                                        title: 'Se elimino correctamente el registro.',
-                                        showConfirmButton: false,
-                                        timer: 1500
-                                    })
-                                })
-                            </script> 
+                        @else
+                            <div class="uppercase font-bold text-center">Restricted</div>
+                        @endif
+
+                           
                         </td>
                         
                     </tr>
@@ -126,5 +114,26 @@
         </div>
         
     @endif
-       
+    @if(session('message'))
+        <script>
+            Swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: '{{$message}}',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        </script>
+    @endif
+    @if(session('error'))
+        <script>
+            Swal.fire({
+                position: 'top-center',
+                icon: 'error',
+                title: '{{$message}}',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        </script>
+    @endif
 </div>

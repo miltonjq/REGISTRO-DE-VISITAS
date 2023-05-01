@@ -180,5 +180,27 @@
             </div>
         </div>
     </nav>
+    @if(session('messageUser'))
+        <script>
+            Swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: "{{session('messageUser')}}",
+                showConfirmButton: false,
+                timer: 1500
+            })
+        </script>
+    @endif
+    @if(session('errorUser'))
+        <script>
+            Swal.fire({
+                position: 'top-center',
+                icon: 'error',
+                title: "{{session('errorUser')}}",
+                showConfirmButton: false,
+                timer: 1500
+            })
+        </script>
+    @endif
 </x-app-layout>
 

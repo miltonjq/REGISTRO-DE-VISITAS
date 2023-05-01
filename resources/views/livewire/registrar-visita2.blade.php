@@ -6,8 +6,19 @@
                 DNI: {{$dni}}
             </label>
             <input class="appearance-none block w-full bg-white-200 text-gray-700 border border-black-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" wire:change="addDni($event.target.value)"  id="dni" name="dni" type="number" placeholder="Ingrese DNI" required>
+            <!-- @error('dni')
+            <p class="text-red-500 text-xs italic">{{ $message }}</p>
+            @enderror -->
             @error('dni')
-                <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                <script>
+                    Swal.fire({
+                        position: 'top-center',
+                        icon: 'error',
+                        title: '{{ $message }}',
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+                </script>
             @enderror
             
         </div>
@@ -78,6 +89,17 @@
             <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="personero_id" type="text" value="{{ Auth::user()->name }}" readonly>
         </div>
     </div>
+    @if(session('message'))
+        <script>
+            Swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: 'Se registro correctamente la visita.',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        </script>
+    @endif
     <script>
         let oficina = document.getElementById('oficina');
 

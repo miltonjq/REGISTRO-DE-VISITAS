@@ -67,22 +67,29 @@
         </div>
     </nav>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- @if(session('message'))
+        <script>
+            Swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: 'Se registro correctamente la visita.',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        </script>
+    @endif -->
+
     <script>
         
         addEventListener("load", (event) => {
+            document.getElementById('formRegistrarVisita').addEventListener('submit', () => {
+                
+            })
+
             let dni = document.getElementById('dni');
             dni.focus();
         });
 
-        // document.getElementById('formRegistrarVisita').addEventListener('submit', () => {
-            
-        //     Swal.fire({
-        //         position: 'top-center',
-        //         icon: 'success',
-        //         title: 'Se registro correctamente la visita.',
-        //         showConfirmButton: false,
-        //         timer: 1500
-        //     })
-        // })
     </script>
 </x-app-layout>

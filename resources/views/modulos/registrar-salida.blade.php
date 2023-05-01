@@ -44,27 +44,34 @@
                 <div>
                     <h2 class="py-8 text-center text-3xl text-gray-900 font-sans"><strong>REGISTAR SU SALIDA Y ALGUNA OBSERVACIÓN</strong></h2>
                 </div>
-              
-                <form class="" method="POST" action="{{ route('registrar-salida.store', ) }}">
-                    @csrf   
-                    
-                        <div class=" w-full flex justify-center mb-6">
-                            <div class="w-96 flex flex-col items-center">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="personero_id">
-                                    REGISTRAR SU SALIDA:
-                                </label>
-                                <input type="number" id="dni" class="block appearance-none w-full bg-gray-200 border border-black-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="Ingrese DNI" name="dni" required>
+                @if(Auth::user()->roles->first()->name  != 'supervisor')
+                    <form class="" method="POST" action="{{ route('registrar-salida.store', ) }}">
+                        @csrf   
+                        
+                            <div class=" w-full flex justify-center mb-6">
+                                <div class="w-96 flex flex-col items-center">
+                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="personero_id">
+                                        REGISTRAR SU SALIDA:
+                                    </label>
+                                    <input type="number" id="dni" class="block appearance-none w-full bg-gray-200 border border-black-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="Ingrese DNI" name="dni" required>
+                                </div>
                             </div>
-                        </div>
-                </form>
+                    </form>
+                @endif
+              
+               
 
                 <div class="pb-6 relative flex items-center">
                     <div class="flex-grow border-t border-gray-400"></div>
                         <span class="flex-shrink mx-4 text-gray-400">Gobierno Regional de Puno</span>
                     <div class="flex-grow border-t border-gray-400"></div>
                 </div>
-
-                @livewire('tabla-registrar-salida',  ['reportes' => $reportes])
+                
+                @if(session('message')) 
+                    @livewire('tabla-registrar-salida',  ['reportes' => $reportes, 'message'=> session('message')])
+                @else
+                    @livewire('tabla-registrar-salida',  ['reportes' => $reportes])
+                @endif
             </div>
         </div>
         

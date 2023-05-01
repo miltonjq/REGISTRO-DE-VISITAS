@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         
         User::factory(3)->create()->each(function($user){
-            $user->assignRole('personero');
+            $user->assignRole('guardiania');
         });
         
 
