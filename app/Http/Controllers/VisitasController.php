@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\visitas;
+use App\Models\Visitas;
 use App\Models\Oficinas;
 use App\Models\Sedes;
 use App\Models\User;
@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Http;
 use GuzzleHttp;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
-
+use Carbon\Carbon;
 
 class VisitasController extends Controller
 {
@@ -79,7 +79,22 @@ class VisitasController extends Controller
         
         // dd($request);
         $validatedData = $request->validate([
-            'dni' => 'required|digits:8',
+            'dni' => [ 'required','digits:8',
+               function ($attribute, $value, $fail) {
+                    if (Visitas::where('dni', $value)->where('estado', '2')->exists()) {
+                        
+                        $ultimaVisita = Visitas::where('dni', $value)->orderBy('created_at', 'desc')->first();
+                        $now = Carbon::now();
+                        
+                        $ultimaVisitaTime = Carbon::parse($ultimaVisita->created_at);
+                        $diffInMinutes = $now->diffInMinutes($ultimaVisitaTime);
+                        
+                        if ($diffInMinutes < 2) {
+                            $fail('Ya se registró una visita con este DNI en los últimos 2 minutos.');
+                        }
+                    }
+                }
+            ],
             'nombres' => 'required',
             'apellidos' => 'required',
             'fecha_y_hora' => 'required',
@@ -94,6 +109,7 @@ class VisitasController extends Controller
             'oficina.required' => 'El campo Oficina es obligatorio.',
             'personero_id.required' => 'El campo Personero es obligatorio.'
         ]);
+
 
 
         $visita = new Visitas();

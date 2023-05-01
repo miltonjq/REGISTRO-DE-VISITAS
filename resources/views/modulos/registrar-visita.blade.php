@@ -74,15 +74,15 @@
             dni.focus();
         });
 
-        document.getElementById('formRegistrarVisita').addEventListener('submit', () => {
+        // document.getElementById('formRegistrarVisita').addEventListener('submit', () => {
             
-            Swal.fire({
-                position: 'top-center',
-                icon: 'success',
-                title: 'Se registro correctamente la visita.',
-                showConfirmButton: false,
-                timer: 1500
-            })
-        })
+        //     Swal.fire({
+        //         position: 'top-center',
+        //         icon: 'success',
+        //         title: 'Se registro correctamente la visita.',
+        //         showConfirmButton: false,
+        //         timer: 1500
+        //     })
+        // })
     </script>
 </x-app-layout>
