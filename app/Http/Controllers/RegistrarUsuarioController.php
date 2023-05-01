@@ -19,12 +19,16 @@ class RegistrarUsuarioController extends Controller
      */
     public function index()
     {
+        
         return view('modulos.agregar-usuario');
     }
 
     public function SeeUsers()
     {
         $users = User::all();
+        session(['messageUser' => '']);
+        session(['errorUser' => '']);
+        
         return view('modulos.ver-usuarios', ['users' => $users]);
     }
 
@@ -91,7 +95,15 @@ class RegistrarUsuarioController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        
+        $user = User::findOrFail($id);
+        
+        // dd($user);
+        if($user){
+            return view('modulos.editar-usuario', ['user' => $user]);
+        }else{            
+            return redirect()->route('ver-usuarios')->with('error', 'No se encontro el usuario en la  base de datos.');
+        }
     }
 
     /**
@@ -99,7 +111,35 @@ class RegistrarUsuarioController extends Controller
      */
     public function update(Request $request, string $id)
     {
-       
+        $validatedData = $request->validate([
+            'dni' => 'required|digits:8',
+            'nombre' => 'required',
+            'correo' => 'required',
+            'telefono' => 'required'
+        ], [
+            'dni.required' => 'El campo DNI es obligatorio.',
+            'dni.digits' => 'El campo DNI debe contener 8 números.',
+            'nombre.required' => 'El campo Nombres es obligatorio.',
+            'correo.required' => 'El campo Email es obligatorio.',
+            'telefono.required' => 'El campo Telefono es obligatorio.'
+        ]);
+
+        $user = User::findOrFail($id);
+        $user->dni = $request->input('dni');
+        $user->name = $request->input('nombre');
+        $user->email = $request->input('correo');
+        $user->telefono = $request->input('telefono');
+        
+
+        
+        if($user->save()){
+            session(['messageUser' => 'Se actualizo exitosamente el usuario.']);
+            return view('modulos.editar-usuario', ['user' => $user]);
+            
+        }else{
+            session(['errorUser' => 'No se pudo actualizar el usuario.']);
+            return view('modulos.editar-usuario', ['user' => $user]);
+        }
     }
 
 

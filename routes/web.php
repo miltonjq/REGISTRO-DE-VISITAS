@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActualizarPasswordController;
 use App\Http\Controllers\Dashboard;
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\VisitasController;
@@ -38,9 +39,10 @@ Route::middleware([
     Route::resource('agregar-oficina', OficinasController::class);
 
     Route::resource('agregar-sedes', SedesController::class);
-
+    
     Route::resource('agregar-usuario', RegistrarUsuarioController::class);
     Route::get('ver-usuarios', [RegistrarUsuarioController::class, 'SeeUsers'])->name('ver-usuarios');
+    Route::put('actualizar-password/{id}', [ActualizarPasswordController::class, 'update'])->name('actualizar-password');
     
     Route::resource('registrar-salida', RegistrarSalidaController::class)->names('registrar-salida');
 });

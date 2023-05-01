@@ -70,9 +70,9 @@
                                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">{{$user->telefono}}</td>
                                 <td class="px-6 py-16 flex gap-2 text-center  justify-center">
                                     @if($user->roles->first()->name != 'admin')
-                                        <button type="button" class="text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900">
+                                        <a type="button" href="{{ route('agregar-usuario.edit', $user->id) }}" class="text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900">
                                             Editar
-                                        </button>
+                                        </a>
                                         
                                         <form action="{{ route('agregar-usuario.destroy', $user->id) }}" method="POST">
                                             @csrf
