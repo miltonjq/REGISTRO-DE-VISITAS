@@ -96,7 +96,7 @@
                 icon: 'success',
                 title: 'Se registro correctamente la visita.',
                 showConfirmButton: false,
-                timer: 1500
+                timer: 3000
             })
         </script>
     @endif
@@ -110,5 +110,7 @@
                 oficina.focus();
             }
         });
+
+        
     </script>
 </div>

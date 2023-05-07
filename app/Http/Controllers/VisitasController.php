@@ -24,7 +24,6 @@ class VisitasController extends Controller
      */
     public function index()
     {
-        
         date_default_timezone_set("America/Lima");
         
         $oficinas = Oficinas::all();
@@ -35,8 +34,7 @@ class VisitasController extends Controller
 
     public function reporte()
     {
-        $oficinas = Oficinas::all();
-        $sedes = Sedes::all();
+        date_default_timezone_set("America/Lima");
 
         $user = Auth::user();
 
@@ -87,10 +85,10 @@ class VisitasController extends Controller
                         $now = Carbon::now();
                         
                         $ultimaVisitaTime = Carbon::parse($ultimaVisita->created_at);
-                        $diffInMinutes = $now->diffInSeconds($ultimaVisitaTime);
+                        $diffInMinutes = $now->diffInMinutes($ultimaVisitaTime);
                         
                         if ($diffInMinutes < 10) {
-                            $fail('Ya se registró una visita con este DNI en los últimos 10 segundos.');
+                            $fail('Ya se registró una visita con este DNI en los últimos 10 minutos.');
                         }
                     }
                 }
