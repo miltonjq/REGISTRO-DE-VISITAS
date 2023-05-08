@@ -51,15 +51,15 @@
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="sede">
                                 OFICINA:
                                 </label>
-                                <input type="text" id="first_name" class="block appearance-none w-full bg-gray-200 border border-black-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="Ingrese la Oficina" name='nombre_oficina' required>
+                                <input type="text" id="first_name" class="block appearance-none w-full bg-gray-200 border border-black-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="Ingrese la Oficina" name='nombre_oficina' required>
                             </div>
                             <div>
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="sede">
                                 SEDE:
                                 </label>
                                 <div class="relative">
-                                    <select class="block appearance-none w-full bg-gray-200 border border-black-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="sede" name="sede_id">
-                                        <option>Seleccione...</option>    
+                                    <select class="block appearance-none w-full bg-gray-200 border border-black-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="sede" name="sede_id" required>
+                                        <option value="" disabled selected>Seleccione...</option>   
                                         @foreach($sedes as $sede)   
                                             <option value="{{$sede->id}}" >{{$sede->nombre_sede}}</option>
                                         @endforeach
@@ -75,7 +75,7 @@
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="piso">
                                     PISO:
                                 </label>
-                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-black-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="Ingrese el Piso" id="piso" type="text" value="" name="piso">
+                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-black-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="Ingrese el Piso" id="piso" type="text" value="" name="piso">
                                 @error('piso')
                                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                 @enderror

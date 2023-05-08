@@ -8,32 +8,127 @@
 
     <link rel="canonical" href="https://flowbite-admin-dashboard.vercel.app/">
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://flowbite-admin-dashboard.vercel.app//app.css">
-        <link rel="apple-touch-icon" sizes="180x180" href="https://flowbite-admin-dashboard.vercel.app/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="https://flowbite-admin-dashboard.vercel.app/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="https://flowbite-admin-dashboard.vercel.app/favicon-16x16.png">
-        <link rel="icon" type="image/png" href="https://flowbite-admin-dashboard.vercel.app/favicon.ico">
-        <link rel="manifest" href="https://flowbite-admin-dashboard.vercel.app/site.webmanifest">
-        <link rel="mask-icon" href="https://flowbite-admin-dashboard.vercel.app/safari-pinned-tab.svg" color="#5bbad5">
-        <meta name="msapplication-TileColor" content="#ffffff">
-        <meta name="theme-color" content="#ffffff">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://flowbite-admin-dashboard.vercel.app//app.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://flowbite-admin-dashboard.vercel.app/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://flowbite-admin-dashboard.vercel.app/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://flowbite-admin-dashboard.vercel.app/favicon-16x16.png">
+    <link rel="icon" type="image/png" href="https://flowbite-admin-dashboard.vercel.app/favicon.ico">
+    <link rel="manifest" href="https://flowbite-admin-dashboard.vercel.app/site.webmanifest">
+    <link rel="mask-icon" href="https://flowbite-admin-dashboard.vercel.app/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    
+    @vite(['resources/css/app.css', 'resources/js/app.js']) <!-- para el css/ en esta version de laravel con el archivo vite.config,js -->
+    
+    <script>
         
-        @vite(['resources/css/app.css', 'resources/js/app.js']) <!-- para el css/ en esta version de laravel con el archivo vite.config,js -->
-        
-        <script>
-            
-            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark')
-            }
-        </script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
 </head>
 <body>
-    <header>
+    <header class="w-full bg-white dark:bg-gray-100 rounded shadow-lg py-4 px-7">
+        <div class="">
+            <nav class="flex justify-between">
+            <div class="flex items-center space-x-3 lg:pr-16 pr-6">
+                <img src="img/escudo.png" class="mr-3 h-12 sm:h-9" alt="Flowbite Logo" />
+                <h2 class="font-extrabold text-2xl leading-6 text-sky-700">Registro de Visitas</h2>
+            </div>
+            <nav class="flex flex-wrap items-center justify-center pl-6 ml-6 text-base border-l border-gray-200 md:mr-auto">
+                
+            
+            <!-- For medium and plus sized devices -->
+            <ul class="hidden md:flex flex-auto space-x-2">
+                <li onclick="selected()" class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-50 cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded">Inicio</li>
+                <li onclick="selected()" class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-50 cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded">Información</li>
+                <li onclick="selected()" class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-50 cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded">Contacto</li>
+            </ul>
+            </nav>
+            <div class="flex space-x-5 justify-center items-center pl-2">
+                <a href="#_"
+                    class="px-4 py-2 text-xs font-bold text-white uppercase transition-all duration-150 bg-sky-700 rounded shadow outline-none active:bg-sky-700 hover:shadow-md focus:outline-none ease">
+                    Ingresar
+                </a>
+            </div>
+            </nav>
+            
+            <!-- for smaller devcies -->
+            <div class="block md:hidden w-full mt-5">
+                <div onclick="selectNew()" class="cursor-pointer px-4 py-3 text-white bg-indigo-600 rounded flex justify-between items-center w-full">
+                <div class="flex space-x-2">
+                    <span id="s1" class="font-semibold text-sm leading-3 hidden">Selected: </span>
+                    <p id="textClicked" class="font-normal text-sm leading-3 focus:outline-none hover:bg-gray-800 duration-100 cursor-pointer">Collections</p>
+                </div>
+                <img id="ArrowSVG" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-1-svg4.svg" alt="down arrow" class="rotate-180 transform" />
+                </div>
+                <div class="relative">
+                <ul id="list" class="hidden font-normal text-base leading-4 absolute top-2 w-full rounded shadow-md z-20">
+                    <li onclick="selectedSmall()" class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal focus:text-black">Inicio</li>
+                    <li onclick="selectedSmall()" class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal focus:text-black">Información</li>
+                    <li onclick="selectedSmall()" class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal focus:text-black">Contacto</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+          <script>
+            function selected() {
+            var targeted = event.target;
+            var clicked = targeted.parentElement;
+
+            var child = clicked.children;
+            console.log(child);
+
+            for (let i = 0; i < child.length; i++) {
+                if (child[i].classList.contains("text-white")) {
+                console.log(child[i]);
+                child[i].classList.remove("text-white", "bg-indigo-600");
+                child[i].classList.add("text-gray-600", "bg-gray-50", "border", "border-white");
+                }
+            }
+
+            targeted.classList.remove("text-gray-600", "bg-gray-50", "border", "border-white");
+            targeted.classList.add("text-white", "bg-indigo-600");
+            }
+
+            function selectNew() {
+            var newL = document.getElementById("list");
+            newL.classList.toggle("hidden");
+
+            document.getElementById("ArrowSVG").classList.toggle("rotate-180");
+            }
+
+            function selectedSmall() {
+            var targeted = event.target;
+            var clicked = targeted.parentElement;
+
+            var child = clicked.children;
+
+            for (let i = 0; i < child.length; i++) {
+                if (child[i].classList.contains("text-white")) {
+                child[i].classList.remove("bg-indigo-600");
+                child[i].classList.add("text-gray-600", "bg-gray-50", "border", "border-white");
+                }
+            }
+
+            targeted.classList.remove("text-gray-600", "bg-gray-50", "border", "border-white");
+
+            document.getElementById("s1").classList.add("hidden");
+            document.getElementById("textClicked").innerHTML = targeted.innerHTML;
+            // close dropdown
+            var newL = document.getElementById("list");
+            newL.classList.toggle("hidden");
+            document.getElementById("ArrowSVG").classList.toggle("rotate-180");
+            }
+
+          </script>
+    </header>
+    {{-- <header>
         <nav class=" shadow transition fixed z-20 w-full border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-[rgb(232,247,255)]">
             <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                 <a class="flex items-center">
@@ -82,7 +177,8 @@
                 </div>
             </div>
         </nav>
-    </header>
+    </header> --}}
+
     <main class="w-full h-full">
         <div class="w-full">
             @yield('content')
@@ -94,56 +190,58 @@
     <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
 
     <footer class="relative dark:bg-[rgb(47,117,179)] pt-8 pb-6">
-    <div class="container mx-auto px-4">
-        <div class="flex flex-wrap text-left lg:text-left">
-        <div class="w-full lg:w-6/12 px-4">
-            <h4 class="text-3xl font-extrabold dark:text-white">Gobierno Regional de Puno</h4>
-            <h5 class="text-lg mt-0 mb-2 text-white">
-            "Trabajando por un Futuro Mejor 2023-2026"
-            </h5>
-            <div class="mt-6 lg:mb-0 mb-6">
-            <button class="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
-                <i class="fab fa-twitter"></i></button><button class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
-                <i class="fab fa-facebook-square"></i></button><button class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
-                <i class="fab fa-dribbble"></i></button><button class="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
-                <i class="fab fa-github"></i>
-            </button>
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap text-left lg:text-left">
+            <div class="w-full lg:w-6/12 px-4">
+                <h4 class="text-3xl font-extrabold dark:text-white">Gobierno Regional de Puno</h4>
+                <h5 class="text-lg mt-0 mb-2 text-white">
+                "Trabajando por un Futuro Mejor 2023-2026"
+                </h5>
+                <div class="mt-6 lg:mb-0 mb-6">
+                <button class="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+                    <i class="fab fa-twitter"></i></button><button class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+                    <i class="fab fa-facebook-square"></i></button><button class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+                    <i class="fab fa-dribbble"></i></button><button class="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+                    <i class="fab fa-github"></i>
+                </button>
+                </div>
+            </div>
+            <div class="w-full lg:w-6/12 px-4">
+                <div class="flex flex-wrap items-top mb-6">
+                <div class="w-full lg:w-4/12 px-4 ml-auto">
+                    <span class="block uppercase dark:text-white text-sm font-semibold mb-2">Useful Links</span>
+                    <ul class="list-unstyled">
+                    <li>
+                        <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="#">About Us</a>
+                    </li>
+                    <li>
+                        <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="#">Blog</a>
+                    </li>
+                    <li>
+                        <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="#">Github</a>
+                    </li>
+                    <li>
+                        <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="#">Free Products</a>
+                    </li>
+                    </ul>
+                </div>
+                
+                </div>
+            </div>
+            </div>
+            <hr class="my-6 border-blueGray-300">
+            <div class="flex flex-wrap items-center md:justify-between justify-center">
+            <div class="w-full md:w-4/12 px-4 mx-auto text-center">
+                <div class="text-sm text-white font-semibold py-1">
+                Copyright © <span id="get-current-year">2023</span><a href="https://www.regionpuno.gob.pe/gobierno-regional-puno/" class="text-white hover:text-white" target="_blank"> Gobierno Regional de Puno
+                <a class="text-white hover:text-blueGray-800">System</a>.
+                </div>
+            </div>
             </div>
         </div>
-        <div class="w-full lg:w-6/12 px-4">
-            <div class="flex flex-wrap items-top mb-6">
-            <div class="w-full lg:w-4/12 px-4 ml-auto">
-                <span class="block uppercase dark:text-white text-sm font-semibold mb-2">Useful Links</span>
-                <ul class="list-unstyled">
-                <li>
-                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="#">About Us</a>
-                </li>
-                <li>
-                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="#">Blog</a>
-                </li>
-                <li>
-                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="#">Github</a>
-                </li>
-                <li>
-                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="#">Free Products</a>
-                </li>
-                </ul>
-            </div>
-            
-            </div>
-        </div>
-        </div>
-        <hr class="my-6 border-blueGray-300">
-        <div class="flex flex-wrap items-center md:justify-between justify-center">
-        <div class="w-full md:w-4/12 px-4 mx-auto text-center">
-            <div class="text-sm text-white font-semibold py-1">
-            Copyright © <span id="get-current-year">2023</span><a href="https://www.regionpuno.gob.pe/gobierno-regional-puno/" class="text-white hover:text-white" target="_blank"> Gobierno Regional de Puno
-            <a class="text-white hover:text-blueGray-800">System</a>.
-            </div>
-        </div>
-        </div>
-    </div>
     </footer>
+
+    
     
 </body>
   

@@ -57,7 +57,7 @@
             OFICINA
             </label>
             <div class="relative">
-                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="oficina" name="oficina" type="text" wire:model="nombreOficina" placeholder="Ingrese la oficina" value="" >
+                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="oficina" name="oficina" type="text" wire:model="nombreOficina" onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="Ingrese la oficina" value="" >
                 <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                 </div>
                 @error('oficina')
