@@ -17,7 +17,7 @@ class Dashboard extends Controller
         $sedes = Sedes::count();
         
         $personeros = User::whereHas('roles', function ($query) {
-            return $query->where('name', 'personero');
+            return $query->where('name', 'guardiania');
         })->count();
 
         

@@ -95,16 +95,20 @@
             <div class="p-4 border-2 grid grid-cols-12 gap-6">
                
                 <div class="col-span-12 mt-5">
-                    <div class="grid gap-2 grid-cols-1 lg:grid-cols-2">
-                        <div class="bg-white shadow-lg p-4" id="chartline"></div>
-                        <div class="bg-white shadow-lg" >
+                    <div class="">
+                        <!-- <div class="bg-white shadow-lg p-4" id="chartline"></div> -->
+                        <div class="bg-white shadow-lg flex flex-col items-center" >
+                            <h2  class="text-4xl py-5 ">Puno - Peru</h2>
                             <div id="default-carousel" class="relative w-full" data-carousel="slide">
                                 <!-- Carousel wrapper -->
-                                <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+                                <div class="relative h-56 overflow-hidden rounded-lg md:h-96 ">
                                     <!-- Item 1 -->
-                                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                        <!-- <img src="/img/escudo.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."> -->
-                                        <img src="/img/escudo.png" class="absolute block object-contain w-full h-full top-0 left-0" alt="...">
+                                    <div class="hidden duration-700 ease-in-out " data-carousel-item>
+                                        <!-- <div class="flex flex-col justify-center items-center gap-5"> -->
+
+                                            <!-- <img src="/img/escudo.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."> -->
+                                            <img src="/img/escudo.png" class="absolute block object-contain w-full h-full top-0 left-0" alt="...">
+                                        <!-- </div> -->
                                     </div>
                                     <!-- Item 2 -->
                                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
