@@ -98,7 +98,7 @@
                     <div class="">
                         <!-- <div class="bg-white shadow-lg p-4" id="chartline"></div> -->
                         <div class="bg-white shadow-lg flex flex-col items-center" >
-                            <h2  class="text-4xl py-5 ">Puno - Peru</h2>
+                            <h2  class="text-4xl py-5 ">Puno - Perú</h2>
                             <div id="default-carousel" class="relative w-full" data-carousel="slide">
                                 <!-- Carousel wrapper -->
                                 <div class="relative h-56 overflow-hidden rounded-lg md:h-96 ">

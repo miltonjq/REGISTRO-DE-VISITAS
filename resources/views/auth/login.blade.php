@@ -2,13 +2,15 @@
     <div class="w-full min-h-screen flex justify-center items-center gap-20  px-4 sm:px-0">
         <div class="w-full bg-cover relative max-w-md lg:max-w-2xl lg:w-4/12 hidden lg:block">
             <div class="flex flex-col items-center justify-center w-full h-full relative lg:pr-10">
-                <img  src="img/logo_gore2.png" />
+                <a href="{{ route('home') }}">
+                    <img src="img/logo_gore2.png" />
+                </a>
             </div>
         </div>
         <div class="flex flex-col gap-7 bg-white p-14 shadow-lg rounded-xl relative">
            
             <div class="w-full ">
-                <h2 class="text-3xl font-serif">Gobierno Reginal de Puno</h2>
+                <h2 class="text-3xl font-serif">Gobierno Regional Puno</h2>
             </div>
 
             <div>

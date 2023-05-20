@@ -29,15 +29,17 @@ class RegistrarVisita2 extends Component
         
         if($this->dni != ''){
             $response = Http::withHeaders([
-                'Authorization' => 'Bearer apis-token-2804.FPvCidtev1tYKiT9b30AK4paQT0P3WgK',
-            ])->get('https://api.apis.net.pe/v1/dni?numero='.$this->dni);
-    
-            $data = json_decode($response->getBody()->getContents());
-    
-            if(isset($data->numeroDocumento)){
-                $dni = $data->numeroDocumento;
+
+            ])->get('https://apiperu.dev/api/dni/'.$this->dni.'?api_token=0504a8cc7ea97214ceded17cee67efd7dee21106bb75270b8daf9ff6a69fc881');
+            //dd($response);
+
+            $data = json_decode($response->getBody()->getContents())->data;
+            //dd($data->numero);
+
+            if(isset($data->numero)){
+                $dni = $data->numero;
                 $this->nombre = $data->nombres;
-                $this->apellido = $data->apellidoPaterno.' '.$data->apellidoMaterno;
+                $this->apellido = $data->apellido_paterno.' '.$data->apellido_materno;
             } else {
                 $this->dni = '';
                 $this->nombre = '';
