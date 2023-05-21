@@ -3,12 +3,12 @@
 use App\Http\Controllers\ActualizarPasswordController;
 use App\Http\Controllers\Dashboard;
 use Illuminate\Support\Facades\Route;
-use App\http\Controllers\VisitasController;
-use App\http\Controllers\OficinasController;
-use App\Http\Controllers\RegistrarSalida;
+use App\Http\Controllers\VisitasController;
+use App\Http\Controllers\OficinasController;
+use app\Http\Controllers\RegistrarSalida;
 use App\Http\Controllers\RegistrarSalidaController;
-use App\http\Controllers\SedesController;
-use App\http\Controllers\RegistrarUsuarioController;
+use App\Http\Controllers\SedesController;
+use App\Http\Controllers\RegistrarUsuarioController;
 
 /*
 |--------------------------------------------------------------------------
