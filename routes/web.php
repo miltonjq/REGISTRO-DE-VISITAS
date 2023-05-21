@@ -32,19 +32,17 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', [Dashboard::class, 'index'])->name('dashboard');
 
-    Route::resource('registrar-visita', VisitasController::class);
-    Route::get('reporte-visitas', [VisitasController::class, 'reporte']);
+    Route::resource('registrar-visita', VisitasController::class)->names('registrar-visita');
+    Route::get('reporte-visitas', [VisitasController::class, 'reporte'])->name('reporte-visitas');
     Route::get('reportePDF', [VisitasController::class, 'reportepdf'])->name('reportePDF');
-    
-    Route::resource('agregar-oficina', OficinasController::class);
 
-    Route::resource('agregar-sedes', SedesController::class);
-    
-    Route::resource('agregar-usuario', RegistrarUsuarioController::class);
+    Route::resource('agregar-oficina', OficinasController::class)->names('agregar-oficina');
+
+    Route::resource('agregar-sedes', SedesController::class)->names('agregar-sedes');
+
+    Route::resource('agregar-usuario', RegistrarUsuarioController::class)->names('agregar-usuario');
     Route::get('ver-usuarios', [RegistrarUsuarioController::class, 'SeeUsers'])->name('ver-usuarios');
     Route::put('actualizar-password/{id}', [ActualizarPasswordController::class, 'update'])->name('actualizar-password');
-    
+
     Route::resource('registrar-salida', RegistrarSalidaController::class)->names('registrar-salida');
 });
-
-
