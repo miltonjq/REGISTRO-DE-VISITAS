@@ -27,17 +27,39 @@ class RegistrarVisita2 extends Component
             'dni' => 'required'
         ]);
 
-        if ($this->dni != '') {
-            $response = Http::withHeaders([])->get('https://apiperu.dev/api/dni/' . $this->dni . '?api_token=0504a8cc7ea97214ceded17cee67efd7dee21106bb75270b8daf9ff6a69fc881');
+        if ($this->dni != '') {            
+            $token = 'apis-token-1.aTSI1U7KEuT-6bbbCguH-4Y8TI6KS73N';
+            
+            $curl = curl_init();
+            
+            curl_setopt_array($curl, array(
+                
+                CURLOPT_URL => 'https://api.apis.net.pe/v2/reniec/dni?numero=' . $this->dni,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_SSL_VERIFYPEER => 0,
+                CURLOPT_ENCODING => '',
+                CURLOPT_MAXREDIRS => 2,
+                CURLOPT_TIMEOUT => 0,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_CUSTOMREQUEST => 'GET',
+                CURLOPT_HTTPHEADER => array(
+                    'Referer: https://apis.net.pe/consulta-dni-api',
+                    'Authorization: Bearer ' . $token
+                ),
+            ));
+            
+            $response = curl_exec($curl);
+            $dataDni = json_decode($response);
 
-            $dataDni = json_decode($response->getBody()->getContents());
+            // dd($dataDni);
+
+            curl_close($curl);
 
 
-            if ($dataDni->success) {
-                $dataDni = $dataDni->data;
-                $dni = $dataDni->numero;
+            if ($dataDni) {
+                $dni = $dataDni->numeroDocumento;
                 $this->nombre = $dataDni->nombres;
-                $this->apellido = $dataDni->apellido_paterno . ' ' . $dataDni->apellido_materno;
+                $this->apellido = $dataDni->apellidoPaterno . ' ' . $dataDni->apellidoMaterno;
             } else {
                 $this->dni = '';
                 $this->nombre = '';
