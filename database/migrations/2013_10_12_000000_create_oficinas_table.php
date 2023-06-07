@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('oficinas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_oficina');
+            $table->string('abrev_oficina')->nullable();
             $table->string('piso');
             $table->timestamps();
         });
