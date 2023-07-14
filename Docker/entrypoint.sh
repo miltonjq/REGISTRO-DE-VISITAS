@@ -13,7 +13,7 @@ else
     echo "env file existe!!"
 fi
 
-php artisan migrate --seed
+php artisan migrate:fresh --seed
 php artisan key:generate
 
 npm run build
